@@ -1509,15 +1509,25 @@
   }
 
   /* ─── Users page multi-select on mobile ────────────────────────────────
-     The card slides 35px to the right to expose the checkbox. The checkbox
-     hit area was tiny (18px) which made selection unreliable on touch.
-     Widen the hit area and make sure it stays clickable above the card. */
+     The card slides ~32px to the right to expose the checkbox. To avoid
+     right-aligned meta (e.g. "Today, 12:40") getting clipped at the screen
+     edge, also tighten the card width and the right padding while in
+     selection mode. */
   body.page-users.selection-mode .userContainer:not(.open) {
-    transform: translate(40px, 0);
+    transform: translate(32px, 0);
+    width: calc(95% - 32px);
+    max-width: calc(100vw - 32px);
   }
 
   body.page-users.selection-mode .userContainer:not(.open) .userForm {
-    transform: translate(-40px, -50%);
+    transform: translate(-34px, -50%);
+  }
+
+  body.page-links.selection-mode .linkContainer:not(.open),
+  body.page-visitors.selection-mode .visitorContainer:not(.open) {
+    transform: translate(32px, 0);
+    width: calc(95% - 32px);
+    max-width: calc(100vw - 32px);
   }
 
   body.page-users.selection-mode .userForm,
