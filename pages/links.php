@@ -100,7 +100,7 @@ include 'components/navigation.php';
   <meta name='description' content='Just a random description of my website.'>
 </head>
 
-<body data-user-role="<?= $role ?>">
+<body class="page-links" data-user-role="<?= $role ?>">
   <?php
   if (isset($_GET['group'])) {
     $groupTitle = $_GET['group'];

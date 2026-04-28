@@ -293,6 +293,99 @@ document.addEventListener("DOMContentLoaded", function () {
     return false;
   }
 
+  function prefersReducedMotion() {
+    return !!window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  }
+
+  function syncLinkBodyWrapperState(container) {
+    const wrapper = container?.querySelector(".linkBodyWrapper");
+    if (!wrapper) {
+      return;
+    }
+
+    if (container.classList.contains("open")) {
+      wrapper.style.height = "auto";
+      wrapper.style.opacity = "1";
+      return;
+    }
+
+    wrapper.style.height = "0px";
+    wrapper.style.opacity = "0";
+  }
+
+  function toggleLinkContainerOpen(container) {
+    const wrapper = container?.querySelector(".linkBodyWrapper");
+    if (!wrapper) {
+      container?.classList.toggle("open");
+      return;
+    }
+
+    const nextOpen = !container.classList.contains("open");
+    if (prefersReducedMotion()) {
+      container.classList.toggle("open", nextOpen);
+      syncLinkBodyWrapperState(container);
+      return;
+    }
+
+    const transitionKey = String(Date.now() + Math.random());
+    wrapper.dataset.linkToggleTransition = transitionKey;
+    const finalizeTransition = () => {
+      if (wrapper.dataset.linkToggleTransition !== transitionKey) {
+        return;
+      }
+      wrapper.style.willChange = "";
+      if (nextOpen) {
+        wrapper.style.height = "auto";
+        wrapper.style.opacity = "1";
+      } else {
+        container.classList.remove("open");
+        wrapper.style.height = "0px";
+        wrapper.style.opacity = "0";
+      }
+      wrapper.removeEventListener("transitionend", onTransitionEnd);
+      clearTimeout(fallbackTimer);
+    };
+    const onTransitionEnd = (event) => {
+      if (event.target === wrapper && event.propertyName === "height") {
+        finalizeTransition();
+      }
+    };
+    const fallbackTimer = window.setTimeout(finalizeTransition, 420);
+    wrapper.addEventListener("transitionend", onTransitionEnd);
+
+    wrapper.style.willChange = "height, opacity";
+    wrapper.style.overflow = "hidden";
+
+    if (nextOpen) {
+      const startHeight = wrapper.getBoundingClientRect().height;
+      container.classList.add("open");
+      const targetHeight = wrapper.scrollHeight;
+      wrapper.style.height = `${startHeight}px`;
+      wrapper.style.opacity = startHeight > 0 ? "1" : "0";
+      void wrapper.offsetHeight;
+      requestAnimationFrame(() => {
+        if (wrapper.dataset.linkToggleTransition !== transitionKey) {
+          return;
+        }
+        wrapper.style.height = `${targetHeight}px`;
+        wrapper.style.opacity = "1";
+      });
+      return;
+    }
+
+    const startHeight = wrapper.getBoundingClientRect().height || wrapper.scrollHeight;
+    wrapper.style.height = `${startHeight}px`;
+    wrapper.style.opacity = "1";
+    void wrapper.offsetHeight;
+    requestAnimationFrame(() => {
+      if (wrapper.dataset.linkToggleTransition !== transitionKey) {
+        return;
+      }
+      wrapper.style.height = "0px";
+      wrapper.style.opacity = "0";
+    });
+  }
+
   function addEventListeners() {
     // Use event delegation for .linkSwitch elements
     document.body.addEventListener("click", function (event) {
@@ -324,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
 
-        openSwitch.classList.toggle("open");
+        toggleLinkContainerOpen(openSwitch);
       }
     });
 
@@ -481,6 +574,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.addEventListener("mouseleave", cancelHold);
     })();
   }
+
+  document.querySelectorAll(".linkContainer").forEach(syncLinkBodyWrapperState);
   addEventListeners();
 
   checkTitleLength();
