@@ -1,0 +1,45 @@
+{
+    "latestBackup": 1776770774000,
+    "latestDbBackup": 1775826309000,
+    "latestFullBackup": 1776770774000,
+    "latestStatus": "success",
+    "latestSnapshotId": "20260421_112614_full_77ae1f3b",
+    "latestReason": "manual",
+    "scheduleSeconds": 86400,
+    "retention": {
+        "keepLatest": 5,
+        "dailyDays": 14,
+        "weeklyWeeks": 8,
+        "monthlyMonths": 6
+    },
+    "history": [
+        {
+            "snapshotId": "20260410_105054_a559074d",
+            "createdAt": 1775818254000,
+            "reason": "manual",
+            "requestedBy": "bryan@daylinq.nl",
+            "deletedSnapshots": []
+        },
+        {
+            "snapshotId": "20260410_105036_0ffd4507",
+            "createdAt": 1775818236000,
+            "reason": "manual",
+            "requestedBy": "bryan@daylinq.nl",
+            "deletedSnapshots": []
+        },
+        {
+            "snapshotId": "20260410_104045_53c71c4f",
+            "createdAt": 1775817645000,
+            "reason": "manual",
+            "requestedBy": "bryan@daylinq.nl",
+            "deletedSnapshots": []
+        },
+        {
+            "snapshotId": "20260410_100133_1b22efae",
+            "createdAt": 1775815293000,
+            "reason": "scheduled",
+            "requestedBy": "cron",
+            "deletedSnapshots": []
+        }
+    ]
+}

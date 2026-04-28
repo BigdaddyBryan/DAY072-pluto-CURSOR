@@ -1,0 +1,47 @@
+{
+  "deleteLink": "Deleted Link Succesfully",
+
+  "deleteVisitor": "Deleted Visitor Succesfully",
+
+  "deleteUser": "Deleted User Succesfully",
+
+  "deleteGroup": "Deleted Group Succesfully",
+
+  "copyQRImage": "Copied QR Image to Clipboard",
+
+  "copyLink": "Copied Link to Clipboard",
+
+  "activeStatus": "Activated Link",
+
+  "archivedStatus": "Archived link",
+
+  "multiSelectDelete": "Multi Select %link_amount% Succesfully pushed",
+
+  "multiSelectDeleteGroups": "%link_amount% group(s) deleted. Click Undo to restore.",
+
+  "multiSelectTagAdd": "Multi Select %link_amount% to %tag% Succesfully pushed.",
+
+  "multiSelectGroupAdd": "Added %link_amount% to %tag% Succesfully.",
+
+  "multiSelectTagDel": "Deleted %link_amount% from %tag% succesfully.",
+
+  "multiSelectGroupDel": "Deleted %link_amount% from %tag% Succesfully.",
+
+  "confirmMultiSelectDelete": "Are you sure you want to delete %link_amount% links?",
+
+  "confirmMultiSelectTagAdd": "Are you sure you want to add %link_amount% links to %tag%?",
+
+  "confirmMultiSelectGroupAdd": "Are you sure you want to add %link_amount% links to %tag%?",
+
+  "confirmMultiSelectTagDel": "Are you sure you want to delete %link_amount% links from %tag%?",
+
+  "confirmMultiSelectGroupDel": "Are you sure you want to delete %link_amount% links from %tag%?",
+
+  "addFavourite": "Added to Favourites",
+
+  "removeFavourite": "Removed from Favourites",
+
+  "backupMessage": "Backup Completed",
+
+  "backupError": "Backup Failed"
+}

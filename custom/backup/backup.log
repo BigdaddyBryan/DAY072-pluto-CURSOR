@@ -1,0 +1,15 @@
+[2026-04-10T10:01:33+00:00] Backup completed: 20260410_100133_1b22efae (reason=scheduled, deleted=0)
+[2026-04-10T10:40:46+00:00] Backup completed: 20260410_104045_53c71c4f (reason=manual, deleted=0)
+[2026-04-10T10:50:37+00:00] Backup completed: 20260410_105036_0ffd4507 (reason=manual, deleted=0)
+[2026-04-10T10:50:55+00:00] Backup completed: 20260410_105054_a559074d (reason=manual, deleted=0)
+[2026-04-10T12:50:51+00:00] Deleted old snapshot by retention policy: 20260410_105036_0ffd4507
+[2026-04-10T12:50:51+00:00] Deleted old snapshot by retention policy: 20260410_104045_53c71c4f
+[2026-04-10T12:50:51+00:00] Deleted old snapshot by retention policy: 20260410_100133_1b22efae
+[2026-04-10T12:50:51+00:00] Backup completed [db]: 20260410_125051_db_a5c5b9fe (reason=test, deleted=3)
+[2026-04-10T12:50:51+00:00] Deleted old snapshot by retention policy: 20260410_105054_a559074d
+[2026-04-10T12:50:51+00:00] Backup completed [full]: 20260410_125051_full_3c52d1d3 (reason=test, deleted=1)
+[2026-04-10T13:04:36+00:00] Snapshot deleted manually: 20260410_125051_full_3c52d1d3
+[2026-04-10T13:04:38+00:00] Snapshot deleted manually: 20260410_125051_db_a5c5b9fe
+[2026-04-10T13:04:40+00:00] Backup completed [db]: 20260410_130440_db_c6bed5f4 (reason=manual, deleted=0)
+[2026-04-10T13:05:09+00:00] Backup completed [db]: 20260410_130509_db_d03d65e4 (reason=manual, deleted=0)
+[2026-04-10T13:05:13+00:00] Snapshot deleted manually: 20260410_130440_db_c6bed5f4

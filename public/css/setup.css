@@ -1,0 +1,1253 @@
+/* ═══════════════════════════════════════════════════════════════
+ *  Setup Wizard Styles
+ *  Self-contained with inline fallbacks for fresh installs
+ *  where custom CSS variables may not yet exist.
+ * ═══════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.setupBody {
+    margin: 0;
+    padding: 0;
+    background: var(--surface-base, #fafbfd);
+    font-family: "custom-font", "Roboto", sans-serif;
+    overflow-x: auto;
+}
+
+.setupWizard {
+    --sw-accent: var(--color-accent, #00cd87);
+    --sw-canvas: var(--surface-canvas, #ffffff);
+    --sw-base: var(--surface-base, #fafbfd);
+    --sw-muted: var(--surface-muted, #e8edf2);
+    --sw-text: var(--text-primary, #222831);
+    --sw-text-sec: var(--text-secondary, #3e4652);
+    --sw-border: var(--border-default, #c8d2dc);
+    --sw-border-soft: var(--border-soft, #e4ebf2);
+    --sw-radius: var(--radius-md, 10px);
+    --sw-radius-sm: var(--radius-sm, 5px);
+    --sw-radius-lg: var(--radius-lg, 15px);
+    --sw-shadow: var(--shadow-medium, 0 8px 20px rgba(0, 0, 0, 0.18));
+    --sw-shadow-sm: var(--shadow-soft, 0 1px 2px rgba(0, 0, 0, 0.06));
+    --sw-transition: var(--general-transition, 0.26s);
+    --sw-action-bg: var(--action-primary-bg, #dde6ef);
+    --sw-action-fg: var(--action-primary-fg, #26303b);
+    --sw-danger-bg: var(--action-danger-bg, #dc5b5b);
+    --sw-danger-fg: var(--action-danger-fg, #ffffff);
+    --sw-status-success: var(--action-success-bg, #16a34a);
+    --sw-status-success-bg: color-mix(in srgb, var(--sw-status-success) 10%, transparent);
+    --sw-button-primary: var(--color-accent, #00cd87);
+    --sw-button-primary-fg: var(--color-white, #ffffff);
+    --sw-button-primary-hover: var(--color-accent-strong, #00a97f);
+    --sw-button-secondary: var(--button-secondary-color, var(--surface-base, #eef2f6));
+    --sw-button-secondary-fg: var(--button-secondary-text-color, var(--text-primary, #222831));
+    --sw-button-secondary-hover: var(--button-secondary-hover, var(--surface-muted, #e8edf2));
+
+    font-family: "custom-font", "Roboto", sans-serif;
+    color: var(--sw-text);
+    background: var(--sw-base);
+    min-height: 100vh;
+    width: 100%;
+    min-width: 1180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+/* ── Progress Bar ── */
+
+.setupProgressBar {
+    align-self: stretch;
+    position: relative;
+    top: auto;
+    z-index: 1;
+    background: var(--sw-canvas);
+    border-bottom: none;
+    box-shadow: none;
+    padding: 14px 0 30px;
+    margin-bottom: 0;
+}
+
+.setupProgress {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    overflow-x: visible;
+    scrollbar-width: auto;
+    padding: 0 10px;
+}
+
+.setupProgress::-webkit-scrollbar {
+    display: none;
+}
+
+.setupProgressStep {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 126px;
+    position: relative;
+    cursor: default;
+    padding: 0 6px;
+}
+
+.setupProgressStep:last-child {
+    flex: 1;
+    min-width: 126px;
+}
+
+.setupProgressStep:last-child .setupProgressLabel {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.setupProgressDot {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--sw-muted);
+    color: var(--sw-text-sec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: background var(--sw-transition), color var(--sw-transition);
+    z-index: 1;
+    border: 1px solid color-mix(in srgb, var(--sw-border-soft) 78%, transparent);
+}
+
+.setupProgressStep.is-active .setupProgressDot {
+    background: var(--sw-accent);
+    color: var(--color-white, #fff);
+    border-color: var(--sw-accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--sw-accent) 18%, transparent);
+}
+
+.setupProgressStep.is-completed {
+    cursor: pointer;
+}
+
+.setupProgressStep.is-completed .setupProgressDot {
+    background: var(--sw-accent);
+    color: transparent;
+    border-color: var(--sw-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.setupProgressStep.is-completed .setupProgressDot::after {
+    content: "done";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white, #fff);
+    font-family: "Material Icons";
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.setupProgressLine {
+    flex: 1;
+    height: 2px;
+    background: color-mix(in srgb, var(--sw-border-soft) 82%, transparent);
+    border-radius: 999px;
+    margin-right: 10px;
+    transition: background var(--sw-transition);
+}
+
+.setupProgressStep.is-completed+.setupProgressStep .setupProgressLine,
+.setupProgressStep.is-completed .setupProgressLine {
+    background: var(--sw-accent);
+}
+
+.setupProgressLabel {
+    position: absolute;
+    top: 43px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: var(--sw-text-sec);
+    white-space: normal;
+    text-align: center;
+    width: 126px;
+    line-height: 1.25;
+    opacity: 0.86;
+}
+
+.setupProgressStep.is-completed .setupProgressLabel {
+    opacity: 0.9;
+    color: var(--sw-text-sec);
+    font-weight: 600;
+}
+
+.setupProgressStep.is-active .setupProgressLabel {
+    opacity: 1;
+    color: var(--sw-text);
+    font-weight: 600;
+}
+
+/* ── Card Container ── */
+
+.setupCard {
+    background: var(--sw-canvas);
+    border: 1px solid var(--sw-border-soft);
+    border-radius: var(--sw-radius);
+    box-shadow: var(--sw-shadow-sm);
+    max-width: 1040px;
+    width: 100%;
+    padding: 32px 36px;
+    margin-top: 0;
+    animation: setupFadeIn 0.3s ease;
+}
+
+@keyframes setupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.setupMain {
+    width: 100%;
+    max-width: 1080px;
+    padding: 26px 20px 48px;
+    flex: 1;
+}
+
+.setupError {
+    display: none;
+    color: var(--sw-danger-bg);
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.setupError.is-visible {
+    display: block;
+}
+
+.setupCardTitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: var(--sw-text);
+    letter-spacing: -0.01em;
+}
+
+.setupCardSubtitle {
+    font-size: 14px;
+    color: var(--sw-text-sec);
+    margin: 0 0 28px 0;
+    line-height: 1.5;
+}
+
+/* ── Step Panels ── */
+
+.setupStepPanel {
+    display: none;
+}
+
+.setupStepPanel.is-active {
+    display: block;
+}
+
+.setupStepPanel[hidden],
+.setupProgressStep[hidden] {
+    display: none !important;
+}
+
+/* ── Footer Actions ── */
+
+.setupActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid color-mix(in srgb, var(--sw-border-soft) 70%, transparent);
+    gap: 12px;
+}
+
+.setupBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color var(--sw-transition), background var(--sw-transition), opacity var(--sw-transition), color var(--sw-transition), transform var(--sw-transition), box-shadow var(--sw-transition);
+}
+
+.setupActions .setupBtn {
+    flex-shrink: 0;
+}
+
+.setupBtn-primary {
+    background: var(--sw-button-primary);
+    color: var(--sw-button-primary-fg);
+    border-color: color-mix(in srgb, var(--sw-accent) 60%, transparent);
+    font-weight: 600;
+}
+
+.setupBtn-primary:hover {
+    opacity: 1;
+    background: var(--sw-button-primary-hover);
+    border-color: color-mix(in srgb, var(--sw-accent) 75%, transparent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw-accent) 14%, transparent);
+}
+
+.setupBtn-primary:active {
+    opacity: 0.92;
+    transform: translateY(1px);
+}
+
+.setupBtn-secondary {
+    background: var(--sw-button-secondary);
+    color: var(--sw-button-secondary-fg);
+    border-color: var(--sw-border-soft);
+    font-weight: 600;
+}
+
+.setupBtn-secondary:hover {
+    opacity: 1;
+    border-color: color-mix(in srgb, var(--sw-accent) 45%, transparent);
+    background: var(--sw-button-secondary-hover);
+}
+
+.setupBtn-secondary:active {
+    opacity: 0.92;
+    transform: translateY(1px);
+}
+
+.setupBtn-danger {
+    background: var(--sw-danger-bg);
+    color: var(--sw-danger-fg);
+}
+
+.setupBtn-danger:hover {
+    opacity: 0.9;
+}
+
+.setupBtn-danger:active {
+    opacity: 0.92;
+    transform: translateY(1px);
+}
+
+.setupBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.setupBtn .material-icons {
+    font-size: 18px;
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+.setupActionsSpacer {
+    flex: 1;
+}
+
+.setupCancelLink {
+    text-decoration: none;
+}
+
+.setupBtn:focus-visible,
+.setupBtn-danger:focus-visible,
+.setupLangBtn:focus-visible,
+.setupPresetSelect:focus-visible,
+.setupPasswordToggle:focus-visible,
+.setupBrandingUploadBtn:focus-visible,
+.setupDbOption:focus-visible,
+.setupColorInput input[type="color"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw-accent) 18%, transparent);
+    border-color: color-mix(in srgb, var(--sw-accent) 55%, var(--sw-border));
+}
+
+/* ── Welcome Step ── */
+
+.setupWelcomeGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.setupWelcomeCard {
+    background: var(--sw-base);
+    border: 1px solid var(--sw-border-soft);
+    border-radius: var(--sw-radius);
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: box-shadow var(--sw-transition), transform var(--sw-transition), border-color var(--sw-transition);
+}
+
+.setupWelcomeCard:hover {
+    border-color: var(--sw-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.setupWelcomeCard .material-icons {
+    font-size: 28px;
+    color: var(--sw-accent);
+    flex-shrink: 0;
+}
+
+.setupWelcomeCard h4 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.setupWelcomeCard p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--sw-text-sec);
+    line-height: 1.4;
+}
+
+/* ── Language Selector ── */
+
+.setupLangPicker {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.setupLangBtn {
+    padding: 6px 16px;
+    border: 1px solid var(--sw-border);
+    border-radius: var(--sw-radius);
+    background: var(--sw-canvas);
+    color: var(--sw-text);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--sw-transition);
+}
+
+.setupLangBtn:hover {
+    background: var(--sw-button-secondary-hover);
+    border-color: var(--sw-border);
+}
+
+.setupLangBtn.is-active {
+    background: var(--sw-accent);
+    color: var(--color-white, #fff);
+    border-color: var(--sw-accent);
+}
+
+/* ── Database Step ── */
+
+.setupDbOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setupDbOption {
+    background: var(--sw-base);
+    border: 2px solid var(--sw-border-soft);
+    border-radius: var(--sw-radius);
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-color var(--sw-transition), background var(--sw-transition), box-shadow var(--sw-transition);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+}
+
+.setupDbOption:hover {
+    border-color: var(--sw-accent);
+}
+
+.setupDbOption:focus-visible {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw-accent) 18%, transparent);
+}
+
+.setupDbOption.is-selected {
+    border-color: var(--sw-accent);
+    background: color-mix(in srgb, var(--sw-accent) 5%, transparent);
+    box-shadow: inset 3px 0 0 var(--sw-accent);
+}
+
+.setupDbOption .material-icons {
+    font-size: 24px;
+    color: var(--sw-accent);
+}
+
+.setupDbOption h4 {
+    margin: 0 0 2px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.setupDbOption p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--sw-text-sec);
+}
+
+/* ── Color Step ── */
+
+.setupColorsKeepBanner {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    border: 1px solid var(--sw-border-soft);
+    border-left: 3px solid var(--sw-accent);
+    border-radius: var(--sw-radius-sm);
+    background: color-mix(in srgb, var(--sw-accent) 8%, transparent);
+    color: var(--sw-text-sec);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.setupColorsKeepBanner.is-visible {
+    display: flex;
+}
+
+.setupColorsKeepBanner .material-icons {
+    font-size: 16px;
+    color: var(--sw-accent);
+}
+
+.setupColorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.setupThemeColumn {
+    background: var(--sw-base);
+    border: 1px solid color-mix(in srgb, var(--sw-border-soft) 62%, transparent);
+    border-radius: var(--sw-radius);
+    padding: 24px;
+}
+
+.setupThemeColumn h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 18px 0;
+}
+
+.setupThemeColumn h3 .material-icons {
+    font-size: 20px;
+    color: var(--sw-accent);
+}
+
+.setupColorInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.setupColorInput label {
+    font-size: 13px;
+    font-weight: 500;
+    min-width: 80px;
+    color: var(--sw-text);
+}
+
+.setupColorInput input[type="color"] {
+    width: 38px;
+    height: 38px;
+    border: 2px solid var(--sw-border-soft);
+    border-radius: var(--sw-radius-sm);
+    cursor: pointer;
+    padding: 2px;
+    background: var(--sw-canvas);
+}
+
+.setupColorInput input[type="text"] {
+    flex: 1;
+    height: 38px;
+    border: 1px solid var(--sw-border);
+    border-radius: var(--sw-radius-sm);
+    padding: 0 10px;
+    font-size: 13px;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    background: var(--sw-canvas);
+    color: var(--sw-text);
+}
+
+/* ── Presets ── */
+
+.setupPresetSelectorWrap {
+    background: color-mix(in srgb, var(--sw-base) 90%, var(--sw-canvas));
+    border: none;
+    border-radius: var(--sw-radius);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.setupPresetSelectorHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.setupPresetLabel {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sw-text);
+}
+
+.setupPresetMode {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sw-text-sec);
+    background: var(--sw-canvas);
+    border: 1px solid var(--sw-border-soft);
+}
+
+.setupPresetMode.is-custom {
+    color: color-mix(in srgb, #b45309 50%, var(--sw-text-sec));
+    border-color: color-mix(in srgb, #b45309 30%, var(--sw-border));
+    background: color-mix(in srgb, #b45309 6%, var(--sw-base));
+}
+
+.setupPresetMode.is-preset {
+    color: var(--sw-accent);
+    border-color: color-mix(in srgb, var(--sw-accent) 40%, var(--sw-border));
+    background: color-mix(in srgb, var(--sw-accent) 8%, var(--sw-base));
+}
+
+.setupPresetSelectorControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.setupPresetResetBtn {
+    min-height: 38px;
+    border-radius: var(--sw-radius-sm);
+    padding: 0 14px;
+    border-color: transparent;
+    background: var(--background-color, var(--sw-canvas));
+    white-space: nowrap;
+}
+
+.setupPresetResetBtn:hover {
+    border-color: color-mix(in srgb, var(--sw-accent) 45%, transparent);
+    background: var(--background-color-dark, var(--sw-base));
+}
+
+.setupPresetResetBtn .material-icons {
+    font-size: 17px;
+}
+
+.setupPresetSelect {
+    flex: 1;
+    min-height: 40px;
+    border: 1px solid var(--sw-border);
+    border-radius: var(--sw-radius-sm);
+    padding: 0 10px;
+    font-size: 13px;
+    background: var(--sw-canvas);
+    color: var(--sw-text);
+}
+
+.setupPresetSelect:focus {
+    outline: none;
+    border-color: var(--sw-accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw-accent) 15%, transparent);
+}
+
+.setupPresetHint {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: var(--sw-text-sec);
+    line-height: 1.45;
+}
+
+/* ── Contrast Badges ── */
+
+.setupContrastResults {
+    margin-top: 18px;
+    display: grid;
+    gap: 6px;
+}
+
+.setupContrastResults h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.setupContrastRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 8px;
+    font-size: 12px;
+    border-radius: var(--sw-radius-sm);
+    background: color-mix(in srgb, var(--sw-base) 84%, var(--sw-canvas));
+}
+
+.setupContrastRow:last-child {
+    margin-bottom: 0;
+}
+
+.setupContrastBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.setupContrastBadge.is-pass {
+    background: var(--sw-status-success-bg);
+    color: var(--sw-status-success);
+}
+
+.setupContrastBadge.is-fail {
+    background: color-mix(in srgb, var(--sw-danger-bg) 10%, transparent);
+    color: var(--sw-danger-bg);
+}
+
+/* ── Live Preview Strip ── */
+
+.setupPreview {
+    margin-top: 20px;
+    border: 1px solid color-mix(in srgb, var(--sw-border-soft) 62%, transparent);
+    border-radius: var(--sw-radius);
+    overflow: hidden;
+}
+
+.setupPreviewBar {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.setupPreviewAccent {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.setupPreviewContent {
+    padding: 18px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.setupPreviewBtn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: var(--sw-radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 8px;
+    margin-top: 10px;
+    border: none;
+}
+
+/* ── Branding Step ── */
+
+.setupBrandingModeSwitch {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border: none;
+    border-radius: var(--sw-radius);
+    background: color-mix(in srgb, var(--sw-base) 82%, var(--sw-canvas));
+    margin-bottom: 10px;
+}
+
+.setupBrandingModeBtn {
+    min-height: 36px;
+    border: 1px solid transparent;
+    border-radius: var(--sw-radius-sm);
+    background: transparent;
+    color: var(--sw-text-sec);
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--sw-transition), border-color var(--sw-transition), color var(--sw-transition);
+}
+
+.setupBrandingModeBtn:hover {
+    color: var(--sw-text);
+    background: var(--sw-canvas);
+}
+
+.setupBrandingModeBtn.is-active {
+    color: var(--sw-accent);
+    background: color-mix(in srgb, var(--sw-accent) 10%, transparent);
+    border-color: color-mix(in srgb, var(--sw-accent) 40%, var(--sw-border));
+}
+
+.setupBrandingModeHint {
+    margin: 0 0 14px;
+    font-size: 12px;
+    color: var(--sw-text-sec);
+}
+
+.setupBrandingDefaultNotice {
+    margin: 0;
+    padding: 14px 16px;
+    border: none;
+    border-left: 3px solid var(--sw-accent);
+    border-radius: var(--sw-radius-sm);
+    background: color-mix(in srgb, var(--sw-accent) 7%, transparent);
+    color: var(--sw-text-sec);
+    font-size: 13px;
+}
+
+.setupBrandingGridWrap {
+    margin-top: 6px;
+}
+
+.setupBrandingGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.setupBrandingCard {
+    background: var(--sw-base);
+    border: 1px solid var(--sw-border-soft);
+    border-radius: var(--sw-radius);
+    padding: 22px;
+    text-align: center;
+    transition: box-shadow var(--sw-transition), transform var(--sw-transition), border-color var(--sw-transition);
+    position: relative;
+}
+
+.setupBrandingCard:hover {
+    border-color: var(--sw-accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.setupBrandingCard.is-uploaded::after {
+    content: "done";
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+    background: var(--sw-status-success);
+    color: var(--color-white, #fff);
+    border-radius: 50%;
+    font-family: "Material Icons";
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.setupBrandingCard h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+.setupBrandingThemeIcon {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.setupBrandingPlaceholderIcon {
+    font-size: 32px;
+    color: var(--sw-border);
+}
+
+.setupBrandingPlaceholderIcon.is-favicon {
+    font-size: 20px;
+}
+
+.setupHiddenFileInput {
+    display: none;
+}
+
+.setupBrandingPreview {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--sw-radius);
+    background: repeating-conic-gradient(var(--sw-muted) 0% 25%, transparent 0% 50%) 0 0 / 12px 12px;
+    overflow: hidden;
+}
+
+.setupBrandingPreview img {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.setupBrandingPreview.is-favicon {
+    width: 48px;
+    height: 48px;
+}
+
+.setupBrandingPreview.is-favicon img {
+    max-width: 32px;
+    max-height: 32px;
+}
+
+.setupBrandingHint {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--sw-text-sec);
+}
+
+/* ── Admin Account Step ── */
+
+.setupAdminFormWrap {
+    max-width: 460px;
+}
+
+.setupFormGroup {
+    margin-bottom: 16px;
+}
+
+.setupFormGroup label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--sw-text);
+}
+
+.setupFormGroup input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid var(--sw-border);
+    border-radius: var(--sw-radius-sm);
+    padding: 0 12px;
+    font-size: 14px;
+    background: var(--sw-canvas);
+    color: var(--sw-text);
+    box-sizing: border-box;
+}
+
+.setupFormGroup input:focus {
+    outline: none;
+    border-color: var(--sw-accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw-accent) 15%, transparent);
+}
+
+.setupFormGroup .setupFieldHint {
+    font-size: 12px;
+    color: var(--sw-text-sec);
+    margin-top: 4px;
+}
+
+.setupFormRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ── Review Step ── */
+
+.setupReviewSection {
+    background: color-mix(in srgb, var(--sw-base) 88%, var(--sw-canvas));
+    border: none;
+    border-radius: var(--sw-radius);
+    box-shadow: var(--sw-shadow-sm);
+    padding: 18px 20px;
+    margin-bottom: 12px;
+}
+
+.setupReviewSection h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.setupReviewSection h4 .material-icons {
+    font-size: 18px;
+    color: var(--sw-accent);
+}
+
+.setupReviewSection p {
+    font-size: 13px;
+    color: color-mix(in srgb, var(--sw-text) 86%, var(--sw-canvas));
+    margin: 4px 0;
+    line-height: 1.5;
+}
+
+.setupReviewNote {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.setupReviewNote-muted {
+    opacity: 0.8;
+}
+
+.setupReviewContrastSummary {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.setupReviewContrastSummary span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.setupReviewContrastSummary .is-pass {
+    color: var(--sw-status-success);
+}
+
+.setupReviewContrastSummary .is-fail {
+    color: var(--sw-danger-bg);
+}
+
+.setupReviewMuted {
+    opacity: 0.82;
+}
+
+.setupReviewSwatches {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.setupReviewSwatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--sw-border-soft) 70%, transparent);
+    box-shadow: var(--sw-shadow-sm);
+}
+
+/* ── Spinner ── */
+
+.setupSpinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: setupSpin 0.6s linear infinite;
+}
+
+@keyframes setupSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Snackbar ── */
+
+.setupSnackbar {
+    position: fixed;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--sw-text);
+    color: var(--sw-canvas);
+    padding: 12px 20px;
+    border-radius: var(--sw-radius);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+    box-shadow: var(--sw-shadow);
+    border: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+    pointer-events: none;
+    min-width: 320px;
+    max-width: min(560px, calc(100vw - 72px));
+    text-align: center;
+}
+
+.setupSnackbar.is-visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.setupSnackbar.is-error {
+    background: var(--sw-danger-bg);
+    color: var(--sw-danger-fg);
+}
+
+.setupSnackbar.is-success {
+    background: var(--sw-status-success);
+    color: var(--color-white, #fff);
+}
+
+/* ── Backup notice ── */
+
+.setupBackupNotice {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    background: color-mix(in srgb, var(--sw-accent) 8%, var(--sw-canvas));
+    border: 1px solid var(--sw-border-soft);
+    border-left: 3px solid var(--sw-accent);
+    border-radius: var(--sw-radius-sm);
+    font-size: 12px;
+    color: var(--sw-text-sec);
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+.setupBackupNotice.is-visible {
+    display: flex;
+}
+
+.setupBackupNotice .material-icons {
+    font-size: 16px;
+    color: var(--sw-accent);
+}
+
+/* ── Step validation error highlight ── */
+
+.setupFormGroup.has-error input {
+    border-color: var(--sw-danger-bg);
+}
+
+.setupFormGroup.has-error label {
+    color: var(--sw-danger-bg);
+}
+
+.setupFormGroup.has-error .setupFieldHint {
+    color: var(--sw-danger-bg);
+}
+
+.setupFormGroup input {
+    transition: border-color var(--sw-transition), box-shadow var(--sw-transition);
+}
+
+/* ── Color input focus ── */
+
+.setupColorInput input[type="text"]:focus {
+    outline: none;
+    border-color: var(--sw-accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw-accent) 15%, transparent);
+}
+
+/* ── Preview button cursor ── */
+
+.setupPreviewBtn {
+    cursor: default;
+}
+
+/* ── Password toggle ── */
+
+.setupPasswordWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.setupPasswordWrap input {
+    width: 100%;
+    padding-right: 44px;
+}
+
+.setupPasswordToggle {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: var(--sw-text-sec);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--sw-radius-sm);
+    transition: color var(--sw-transition), background var(--sw-transition);
+    padding: 0;
+}
+
+.setupPasswordToggle:hover {
+    color: var(--sw-accent);
+    background: color-mix(in srgb, var(--sw-accent) 8%, transparent);
+}
+
+.setupPasswordToggle:active {
+    background: color-mix(in srgb, var(--sw-accent) 14%, transparent);
+}
+
+.setupPasswordToggle .material-icons {
+    font-size: 18px;
+}
+
+/* ── Mobile Stepper Simplification ── */
+
+@media screen and (max-width: 768px) {
+    .setupProgressBar {
+        display: none;
+    }
+}

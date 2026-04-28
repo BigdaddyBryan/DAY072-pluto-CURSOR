@@ -1,0 +1,47 @@
+{
+  "deleteLink": "Link succesvol verwijderd",
+
+  "deleteVisitor": "Bezoeker succesvol verwijderd",
+
+  "deleteUser": "Gebruiker succesvol verwijderd",
+
+  "deleteGroup": "Groep succesvol verwijderd",
+
+  "copyQRImage": "QR-code gekopieerd naar klembord",
+
+  "copyLink": "Link gekopieerd naar klembord",
+
+  "activeStatus": "Link geactiveerd",
+
+  "archivedStatus": "Link gearchiveerd",
+
+  "multiSelectDelete": "%link_amount% item(s) succesvol verwijderd",
+
+  "multiSelectDeleteGroups": "%link_amount% groep(en) verwijderd. Klik op Ongedaan maken om te herstellen.",
+
+  "multiSelectTagAdd": "Tag \"%tag%\" toegevoegd aan %link_amount% item(s).",
+
+  "multiSelectGroupAdd": "%link_amount% item(s) toegevoegd aan \"%tag%\".",
+
+  "multiSelectTagDel": "Tag \"%tag%\" verwijderd van %link_amount% item(s).",
+
+  "multiSelectGroupDel": "%link_amount% item(s) verwijderd uit \"%tag%\".",
+
+  "confirmMultiSelectDelete": "Weet je zeker dat je %link_amount% item(s) wilt verwijderen?",
+
+  "confirmMultiSelectTagAdd": "Weet je zeker dat je \"%tag%\" wilt toevoegen aan %link_amount% item(s)?",
+
+  "confirmMultiSelectGroupAdd": "Weet je zeker dat je %link_amount% item(s) wilt toevoegen aan \"%tag%\"?",
+
+  "confirmMultiSelectTagDel": "Weet je zeker dat je \"%tag%\" wilt verwijderen van %link_amount% item(s)?",
+
+  "confirmMultiSelectGroupDel": "Weet je zeker dat je %link_amount% item(s) wilt verwijderen uit \"%tag%\"?",
+
+  "addFavourite": "Toegevoegd aan favorieten",
+
+  "removeFavourite": "Verwijderd uit favorieten",
+
+  "backupMessage": "Back-up voltooid",
+
+  "backupError": "Back-up mislukt"
+}

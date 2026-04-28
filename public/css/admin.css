@@ -1,0 +1,1371 @@
+.page-admin {
+  min-height: 100vh;
+  background-color: var(--background-color-light);
+}
+
+.adminContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.adminDropdown {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--dropdown-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.adminDropdown .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: var(--dropdown-title-bg);
+  color: var(--dropdown-title-color);
+}
+
+.adminDropdown .adminContentDropdown {
+  padding: 15px;
+  display: none;
+}
+
+.adminDropdown.open .adminContentDropdown {
+  display: block;
+}
+
+.adminDropdown .title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  gap: 10px;
+
+  i {
+    font-size: 25px;
+  }
+}
+
+.adminDropdown {
+  margin-bottom: 35px;
+}
+
+/* Extracted buttonGrid styles to be global */
+.buttonGrid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, minmax(calc(100% / 3 - 10px), 1fr));
+}
+
+.adminDropdown.open {
+
+  .icon {
+    transform: rotate(180deg);
+  }
+
+  .adminContentDropdown {
+    display: block;
+  }
+}
+
+/* Dashboard Styles */
+.adminDashboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.adminDropdownTrigger {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  justify-content: flex-start;
+  /* Align left */
+  align-items: center;
+  gap: 12px;
+  padding: 12px 25px;
+  /* Comfortable padding */
+  height: 60px;
+  background-color: var(--background-color-light);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-soft, 0 1px 2px rgba(0, 0, 0, 0.03));
+  /* Significantly reduced shadow */
+  position: relative;
+  /* For positioning if needed */
+  overflow: hidden;
+  /* Ensure border-left effect is clean */
+}
+
+.adminDropdownTrigger:hover {
+  background-color: var(--background-color-hover);
+  /* Light hover */
+  transform: translateY(-1px);
+  /* Reduced movement */
+  box-shadow: var(--shadow-soft, 0 1px 3px rgba(0, 0, 0, 0.05));
+  /* Reduced hover shadow */
+  border-color: var(--primary-color);
+}
+
+.adminDropdownTrigger.active {
+  border-color: var(--primary-color);
+  background-color: var(--background-color-hover);
+}
+
+/* Icon Styles */
+.dropdownIcon {
+  font-size: 24px;
+  color: var(--primary-color);
+  /* Theme colored icon */
+  min-width: 24px;
+}
+
+.dropdownTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+  flex-grow: 1;
+  /* Push arrow to the right if we want spread, or keep centered */
+  /* text-align: center; */
+  /* Uncomment to keep centered text */
+}
+
+.dropdownArrow {
+  font-size: 24px;
+  color: var(--text-color-secondary);
+  transition: transform 0.3s ease;
+  margin-left: auto;
+  /* Push arrow to the far right */
+}
+
+/* Rotate arrow when active (requires JS class toggle) */
+.adminDropdownTrigger.active .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+.adminDropdownTrigger:hover .dropdownArrow {
+  color: var(--primary-color);
+}
+
+/* Full Screen Section Overlay */
+.adminSectionOverlay {
+  display: none;
+  /* hidden by default */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.adminSectionOverlay.active {
+  display: block;
+}
+
+.adminSectionHeader {
+  position: sticky;
+  top: 0;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+  box-shadow: var(--shadow-soft, 0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.adminSectionHeader h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.backButton {
+  background: none;
+  border: 1px solid var(--border-color-light);
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.backButton:hover {
+  background-color: var(--background-color-light);
+}
+
+.adminSectionContent {
+  padding: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .buttonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .adminDashboard {
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .adminDropdownTrigger {
+    min-width: 100%;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .adminDropdownTrigger:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .adminSectionHeader {
+    box-shadow: none;
+    padding: 12px 15px;
+  }
+
+  .oneTimeSettingsSection,
+  .tokenContainer,
+  .submitButton {
+    box-shadow: none;
+  }
+}
+
+.adminContentDropdown {
+  display: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.adminContentItemInput {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  width: 150px;
+  background-color: var(--button-primary-color);
+  padding: 5px;
+
+  input {
+    font-size: 16px;
+  }
+}
+
+.domainTitleItem {
+  cursor: default;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.domainTitleInput {
+  pointer-events: none;
+  user-select: text;
+  color: var(--text-color);
+  width: 100%;
+  min-width: 0;
+  text-overflow: ellipsis;
+}
+
+.adminContentHalf {
+  width: 48%;
+  margin-left: 2%;
+}
+
+.adminContentWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.adminImagesWrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "images buttons";
+  gap: 15px;
+}
+
+.innerAdminContent {
+  width: 100%;
+  padding-right: 4%;
+}
+
+.tokenContainer {
+  background-color: var(--background-color);
+  padding: 12px 14px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tokenData {
+  display: flex;
+  flex-direction: row;
+
+  * {
+    flex: 1;
+  }
+}
+
+.adminInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 3px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color-light);
+  color: var(--text-color);
+  padding: 5px 5px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--general-transition);
+
+  input:disabled {
+    background: none;
+    border: none;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  i {
+    background: none;
+  }
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color-dark);
+    cursor: pointer;
+
+    input:disabled {
+      color: var(--background-color);
+      pointer-events: none;
+    }
+
+    i {
+      color: var(--background-color);
+    }
+  }
+}
+
+.tokenButton {
+  width: fit-content !important;
+  height: fit-content !important;
+  padding: 8px 10px !important;
+}
+
+/* ── Maintenance section ── */
+.maintenanceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.maintenanceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--background-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.maintenanceCard:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.maintenanceCardIcon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(var(--primary-color-rgb), 0.1);
+  color: var(--primary-color);
+}
+
+.maintenanceCardIcon i {
+  font-size: 22px;
+}
+
+.maintenanceCardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.maintenanceCardDesc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.maintenanceCard .submitButton {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Backup dashboard */
+.backupDescription {
+  margin: 0 0 16px;
+  opacity: 0.85;
+}
+
+.backupActionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.backupStatusNotice {
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent);
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.backupStatusNotice-neutral {
+  background: var(--background-color-light);
+}
+
+.backupStatusNotice-success {
+  border-color: rgba(46, 160, 67, 0.45);
+  background: rgba(46, 160, 67, 0.1);
+}
+
+.backupStatusNotice-warning {
+  border-color: rgba(191, 135, 0, 0.45);
+  background: rgba(191, 135, 0, 0.1);
+}
+
+.backupStatusNotice-error {
+  border-color: rgba(191, 38, 0, 0.45);
+  background: rgba(191, 38, 0, 0.1);
+}
+
+.backupSnapshotsList {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.backupSnapshotCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 72%, transparent);
+  border-radius: 12px;
+  background: var(--background-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.backupSnapshotCard:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.backupSnapshotInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.backupSnapshotTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.backupSnapshotTitle i {
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.backupTypeBadge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.backupTypeBadge-db {
+  background: rgba(30, 136, 229, 0.12);
+  color: #1e88e5;
+}
+
+.backupTypeBadge-full {
+  background: rgba(67, 160, 71, 0.12);
+  color: #43a047;
+}
+
+.backupSnapshotMeta {
+  margin: 0 0 2px;
+  font-size: 13px;
+  opacity: 0.7;
+  color: var(--text-color);
+}
+
+.backupSnapshotActions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.backupDeleteButton {
+  background-color: var(--button-danger-color) !important;
+  color: var(--button-danger-text-color) !important;
+  border: 1px solid var(--button-danger-hover) !important;
+}
+
+.backupDeleteButton:hover {
+  background-color: var(--button-danger-hover) !important;
+  color: var(--button-danger-text-color) !important;
+}
+
+.backupListEmpty {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+.backupLogDetails {
+  margin-top: 4px;
+}
+
+.backupLogDetails summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 0;
+  color: var(--text-color);
+  opacity: 0.85;
+  user-select: none;
+}
+
+.backupLogDetails summary:hover {
+  opacity: 1;
+}
+
+.backupLogOutput {
+  margin: 8px 0 0;
+  max-height: 280px;
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--background-color-light);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .backupSnapshotCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .backupSnapshotActions {
+    justify-content: flex-end;
+  }
+
+  .maintenanceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.adminContentButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  grid-area: buttons;
+}
+
+.innerAdminContentImages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(calc(100% / 2 - 10px), 1fr));
+  gap: 10px;
+}
+
+.adminImagesPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  grid-area: images;
+}
+
+.adminImageFooter {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.customImageContainer {
+  width: 100%;
+  height: clamp(150px, 20vw, 200px);
+  overflow: hidden;
+}
+
+.customImageContainer.is-hidden {
+  display: none;
+}
+
+.customImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.customImageOverlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.7327263669139531) 0%,
+      rgba(255, 255, 255, 0) 100%);
+  transition: 0.25s;
+}
+
+.customImageContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.imageRadio {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  transition: 0.25s;
+}
+
+.imageRadio:not(:checked) {
+  opacity: 0;
+}
+
+.customImageContainer:hover:not(.dragging) .imageRadio {
+  opacity: 1;
+}
+
+.customImageContainer.over {
+  border: 2px dashed #000;
+}
+
+.customImageContainer.dragging {
+  opacity: 0.5;
+}
+
+.customImageContainer:not(.dragging) .customImage:hover+.customImageOverlay,
+.customImageContainer:not(.dragging) .customImageOverlay:hover {
+  opacity: 1;
+  transform: translateY(-100%);
+  cursor: pointer;
+}
+
+.customImageContainer.createImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.customImageContainer.createImage:hover {
+  background-color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.overlayText {
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 500;
+  -webkit-text-stroke: var(--background-color) 1px;
+  opacity: 0.7;
+}
+
+.slideShowOverlay {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.slideShowOverlay:hover,
+.backgroundPreview:hover .slideShowOverlay {
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.backgroundPreview {
+  transition: opacity 1s ease-in-out;
+}
+
+.backgroundPreview.fade-in {
+  opacity: 1;
+}
+
+.backgroundPreview.fade-out {
+  opacity: 0;
+}
+
+.adminContentHalf .title {
+  margin-bottom: 20px;
+}
+
+#backgroundLoadMoreButton {
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+@media (max-width: 1300px) {
+  .innerAdminContentImages {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1130px) {
+  .buttonGrid {
+    grid-template-columns: repeat(2, minmax(calc(100% / 2 - 10px), 1fr));
+  }
+
+  .adminContentWrapper {
+    flex-direction: column;
+  }
+
+  .adminContentButtons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .adminImagesWrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "buttons"
+      "images";
+  }
+
+  .adminContentButtons {
+    grid-area: buttons;
+  }
+
+  .innerAdminContentImages {
+    grid-area: auto;
+  }
+
+  .adminImagesPanel {
+    grid-area: images;
+  }
+}
+
+@media (max-width: 775px) {
+  .adminContentHalf {
+    width: 100%;
+  }
+
+  #section-domainTitles .adminSectionContent {
+    padding-bottom: 90px;
+  }
+}
+
+@media(max-width: 650px) {
+  .adminContent {
+    flex-direction: column;
+  }
+
+  .adminContentHalf {
+    margin-left: 0;
+  }
+}
+
+
+.imageButtons {
+  flex: 1;
+}
+
+/* Enhanced Token UI Styles */
+.tokenHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: none;
+  font-size: 12px;
+}
+
+.tokenStatus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: var(--general-transition);
+
+  .statusIcon {
+    font-size: 14px;
+  }
+
+  &.active {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+  }
+
+  &.used {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+  }
+
+  &.expired {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+  }
+
+  &.scheduled {
+    background-color: rgba(158, 158, 158, 0.15);
+    color: var(--text-color-secondary);
+  }
+
+  &.deactivated {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+  }
+}
+
+.tokenCreated {
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
+
+.tokenData {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.tokenDataRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+
+  .label {
+    font-weight: 500;
+    color: var(--text-color-secondary);
+    min-width: 80px;
+  }
+
+  .value {
+    color: var(--text-color);
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 12px;
+  }
+}
+
+.tokenButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.deactivateButton {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+  color: #ff9800 !important;
+  border: 1px solid #ff9800 !important;
+
+  &:hover {
+    background-color: #ff9800 !important;
+    color: white !important;
+  }
+}
+
+.deleteButton {
+  background-color: var(--button-danger-color) !important;
+  color: var(--button-danger-text-color) !important;
+  border: 1px solid var(--button-danger-hover) !important;
+
+  &:hover {
+    background-color: var(--button-danger-hover) !important;
+    color: var(--button-danger-text-color) !important;
+  }
+}
+
+.tokenContainer {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  &[data-status="used"],
+  &[data-status="expired"],
+  &[data-status="deactivated"] {
+    opacity: 0.7;
+  }
+
+  .loading {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
+.oneTimeCreateSettings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .oneTimeCreateSettings {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.oneTimeSettingsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid color-mix(in srgb, var(--border-color) 68%, transparent);
+  border-radius: 8px;
+  background-color: var(--background-color-light);
+  padding: 20px;
+  box-shadow: none;
+}
+
+.oneTimeSettingsTitle {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+  text-transform: uppercase;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.oneTimeCreateSettings label {
+  font-size: 13px;
+  color: var(--text-color-secondary);
+}
+
+.oneTimeSelect {
+  width: 100%;
+  min-height: 38px;
+  text-align: left;
+}
+
+.oneTimeDateInput {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--input-radius, var(--border-radius));
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 8px 10px;
+}
+
+.oneTimeAdvancedTimingFields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oneTimeToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.oneTimeToggle input {
+  width: 16px;
+  height: 16px;
+}
+
+.oneTimeGroupPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oneTimeGroupPickerHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.oneTimeScopeAll {
+  min-height: 34px;
+  padding: 6px 10px;
+}
+
+.oneTimeScopeAll.active {
+  border-color: var(--primary-color);
+}
+
+.oneTimeGroupCount {
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
+
+.oneTimeGroupSearch {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--input-radius, var(--border-radius));
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 8px 10px;
+}
+
+.oneTimeGroupList {
+  max-height: 160px;
+  overflow: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.oneTimeGroupOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.oneTimeGroupOption:hover {
+  background-color: var(--background-color-light);
+}
+
+.oneTimeGroupOption.active {
+  border: 1px solid var(--primary-color);
+}
+
+.oneTimeGroupOption input {
+  width: 16px;
+  height: 16px;
+}
+
+.oneTimeNoGroups {
+  margin: 4px;
+  font-size: 13px;
+  color: var(--text-color-secondary);
+}
+
+.tokenPagination {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tokenPaginationButton {
+  min-width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tokenPaginationButton.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.tokenPaginationNumbers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tokenPaginationNumber {
+  min-width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.tokenPaginationNumber.active {
+  border-color: var(--primary-color);
+  background-color: var(--background-color-light);
+}
+
+
+/* Accent Colors - REMOVED (Reverted to keep site consistent) */
+
+/* Button styles */
+.submitButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Center content */
+  gap: 8px;
+  /* Space between text and icon */
+  background-color: var(--primary-color);
+  /* Use main theme color */
+  color: #fff;
+  /* Ensure text is white on primary */
+  border: 1px solid var(--border-color);
+  border-bottom-width: 2px;
+  border-radius: 8px;
+  /* Rounded corners to match triggers */
+  padding: 12px 20px;
+  /* Slightly larger clickable area */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Reduced shadow base */
+  min-height: 44px;
+  /* Consistent height */
+}
+
+.submitButton:hover {
+  background-color: var(--primary-color-dark, #0056b3);
+  /* Fallback */
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  /* Reduced hover shadow */
+}
+
+.buttonGrid .submitButton,
+.adminContentButtons .submitButton {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  min-height: 50px;
+  padding: 10px 14px;
+  line-height: 1.25;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+/* Custom Styling section organization */
+#section-customStyling .adminSectionContent {
+  padding-top: 22px;
+}
+
+.customStylingLayout {
+  display: grid;
+  gap: 14px;
+}
+
+.customStylingIntro {
+  border: none;
+  border-radius: 12px;
+  background-color: color-mix(in srgb, var(--primary-color) 6%, var(--background-color));
+  padding: 12px 14px;
+}
+
+.customStylingIntro p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-color);
+  opacity: 0.86;
+}
+
+.customStylingGroup {
+  border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent);
+  border-radius: 12px;
+  background-color: var(--background-color);
+  padding: 18px 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.customStylingGroupHeader {
+  display: grid;
+  gap: 4px;
+}
+
+.customStylingGroupTitle {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.customStylingGroupTitle .material-icons {
+  font-size: 19px;
+  color: var(--primary-color);
+}
+
+.customStylingGroupHint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-color-secondary);
+}
+
+.customStylingGrid {
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.customStylingGroup-critical {
+  border-color: var(--button-danger-hover, var(--button-danger-color));
+}
+
+.customStylingGroup-critical .customStylingGroupTitle .material-icons {
+  color: var(--button-danger-color, #dc5b5b);
+}
+
+.submitButtonLink {
+  text-decoration: none;
+  text-align: center;
+}
+
+.submitButton.submitButton-danger {
+  background-color: var(--button-danger-color, #dc5b5b);
+  border-color: var(--button-danger-hover, #c44f4f);
+  color: var(--button-danger-text-color, #fff);
+}
+
+.submitButton.submitButton-danger:hover {
+  background-color: var(--button-danger-hover, #c44f4f);
+  color: var(--button-danger-text-color, #fff);
+}
+
+@media (max-width: 980px) {
+  .customStylingGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Secondary Action Button (Outline style for less visual weight) */
+.createTokenButton.secondary {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  box-shadow: none;
+}
+
+.createTokenButton.secondary:hover {
+  background-color: var(--background-color-hover);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+/* Icon Styles */
+.dropdownIcon {
+  font-size: 24px;
+  color: var(--primary-color);
+  /* Theme colored icon */
+  min-width: 24px;
+}
+
+/* Ensure inputs match button style */
+.oneTimeSelect,
+.oneTimeDateInput,
+.oneTimeGroupSearch,
+.domainTitleInput {
+  border-radius: var(--input-radius, var(--border-radius));
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color-light);
+  color: var(--text-color);
+  padding: 10px 15px;
+  transition: border-color 0.2s;
+}
+
+.oneTimeSelect:focus,
+.oneTimeDateInput:focus,
+.oneTimeGroupSearch:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Fix specific icon alignments in lists */
+.tokenStatus .statusIcon {
+  display: flex;
+  /* Fix vertical alignment */
+  align-items: center;
+}

@@ -1,0 +1,1434 @@
+@media screen and (max-width: 1100px) {
+
+  .searchBar,
+  .filtersContainer,
+  .shownContainer,
+  .countContainer,
+  #multiSelect {
+    max-width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .searchBarContainer {
+    gap: 8px;
+  }
+
+  /* Header is 60px in this range; keep the multi-select bar flush below it */
+  .multiSelect.active {
+    --multi-select-sticky-top: 60px;
+  }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 769px) {
+  .header {
+    height: 60px;
+  }
+
+  .headerSpacer {
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .titleContainer {
+    width: 100%;
+  }
+
+  /* Allow link titles to wrap so short titles show in full and long titles
+     never get cut off with "..." — only show ellipsis on visitor titles */
+  .linkTitle {
+    display: block;
+    max-width: 90%;
+    padding: 12px 0;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .visitorTitle {
+    display: block;
+    max-width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 12px 0;
+  }
+
+  .linkContainer.open {
+    border-left: 3px solid var(--primary-color);
+  }
+
+  .linkContainer.open .linkTitle {
+    max-width: 100%;
+  }
+
+  body.page-groups .groupOpenTitle {
+    font-size: 16px;
+    margin: 2px 0 8px 0;
+  }
+
+  .usersContainer {
+    margin-bottom: 20px;
+  }
+
+  .header {
+    height: 60px;
+    transition: transform 0.3s ease;
+  }
+
+  .navigationMax {
+    position: sticky;
+    top: 60px;
+    z-index: 2;
+    background-color: var(--background-color-light);
+    transition: top 0.3s ease;
+  }
+
+  body.mobile-nav-hidden .navigationMax {
+    top: 0;
+  }
+
+  .gSignIn {
+    bottom: 70px;
+    right: 15px;
+    left: auto;
+    width: auto;
+  }
+
+  #loginButton {
+    bottom: 120px;
+  }
+
+  html {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .headerSpacer {
+    height: 60px;
+    transition: height 0.2s ease;
+  }
+
+  .headerSpacer.headerSpacer-collapsed {
+    height: 0;
+  }
+
+  #nav-icon3 {
+    position: absolute;
+    right: 8px;
+    left: auto;
+    margin-left: 0;
+    width: 37px;
+    height: 60px;
+    z-index: 9;
+  }
+
+  .userImageContainer {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .navContainer {
+    width: 240px;
+    transition: transform 0.3s ease;
+    padding-bottom: env(safe-area-inset-bottom);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .nav {
+    height: 100%;
+  }
+
+  .nav-bottom {
+    display: none;
+  }
+
+  .searchBarContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .searchBar {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* Keep mobile search row clean: hide inline active filter chips.
+     Active filters stay functional through filter controls and button state. */
+  #activeFilters {
+    display: none !important;
+  }
+
+  .searchVersion {
+    display: none;
+  }
+
+  .countContainer.desktopHide,
+  .navigation>.shownContainer.desktopHide {
+    display: none !important;
+  }
+
+  .logo {
+    width: 150px;
+    height: 40px;
+    margin-left: 10px;
+  }
+
+  .userPicture {
+    width: 40px;
+    height: 40px;
+  }
+
+  .titleTags {
+    display: none;
+  }
+
+  .filtersContainer {
+    width: auto;
+    max-width: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 4px;
+    margin: 0;
+    padding-right: 0;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .filterContainer,
+  .sortContainer {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+  }
+
+  .clearContainer,
+  .resetContainer,
+  .selectModeContainer {
+    display: none !important;
+  }
+
+  .filterButton,
+  .sortButton,
+  .clearButton,
+  .resetButton,
+  .selectModeButton {
+    height: 42px;
+    width: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .filterButton.has-active-filters {
+    position: relative;
+  }
+
+  .filterButton.has-active-filters::after {
+    content: attr(data-active-count);
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 999px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+  }
+
+  .tagGroupModalContent,
+  .sortModalContent,
+  .modal-content:not(.modal-popup) {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-y: auto !important;
+  }
+
+  #modal-content.customCssEditorModal,
+  #modal-content.large.customCssEditorModal {
+    padding: 10px 8px calc(10px + env(safe-area-inset-bottom)) !important;
+    align-items: stretch !important;
+  }
+
+  #modal-content.customCssEditorModal .customCssEditorTitleRow,
+  #modal-content.large.customCssEditorModal .customCssEditorTitleRow {
+    padding-right: 84px;
+  }
+
+  #modal-content.customCssEditorModal .customCssTokenField .customCssTokenInput,
+  #modal-content.large.customCssEditorModal .customCssTokenField .customCssTokenInput {
+    padding-right: 96px;
+  }
+
+  #modal-content.customCssEditorModal .customCssTokenColor,
+  #modal-content.large.customCssEditorModal .customCssTokenColor {
+    width: 38px;
+    height: 38px;
+    right: 6px;
+    top: 32px;
+  }
+
+  #modal-content.customCssEditorModal .customCssTokenCopy,
+  #modal-content.large.customCssEditorModal .customCssTokenCopy {
+    top: 40px;
+    right: 48px;
+    width: 24px;
+    height: 24px;
+  }
+
+  #modal-content.customCssEditorModal .customCssDashboardToolbar,
+  #modal-content.large.customCssEditorModal .customCssDashboardToolbar {
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  #modal-content.customCssEditorModal .customCssEditorTabs,
+  #modal-content.large.customCssEditorModal .customCssEditorTabs,
+  #modal-content.customCssEditorModal .customCssFormatSwitch,
+  #modal-content.large.customCssEditorModal .customCssFormatSwitch {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #modal-content.customCssEditorModal .customCssTransferActions,
+  #modal-content.large.customCssEditorModal .customCssTransferActions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  #modal-content.customCssEditorModal .customCssTransferActions .submitButton,
+  #modal-content.large.customCssEditorModal .customCssTransferActions .submitButton {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+  }
+
+  #modal-content.customCssEditorModal .customCssEditorActions,
+  #modal-content.large.customCssEditorModal .customCssEditorActions {
+    padding-bottom: max(2px, env(safe-area-inset-bottom));
+  }
+
+  /* Pop-up modals (QR, delete confirm etc.) stay compact & centered on mobile */
+  .modal-content.modal-popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(360px, calc(100vw - 32px)) !important;
+    height: fit-content !important;
+    max-height: calc(100dvh - 40px) !important;
+    border-radius: var(--border-radius-secondaire) !important;
+    overflow-y: auto !important;
+    margin: 0 !important;
+    padding: 24px 20px 20px !important;
+  }
+
+  .confirmMultiPreviewRow {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .confirmPreviewValue {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bottomNav .navItem {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .visitorData p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .visitorData.totalVisits {
+    flex: 0.5;
+  }
+
+  #multiSelect {
+    width: 100%;
+  }
+
+  .selectionModeHeader {
+    height: 46px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+  }
+
+  /* ── Left: master checkbox + count ── */
+  .selectionModeLeft {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .multiMasterControl {
+    gap: 4px;
+  }
+
+  .multiMasterCheckbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .multiMasterCheckbox::after {
+    font-size: 14px;
+  }
+
+  .multiMasterMenuButton {
+    display: inline-flex !important;
+  }
+
+  .multiMasterMenu {
+    display: none;
+  }
+
+  .mobileSelectionQuickActions {
+    display: none !important;
+  }
+
+  .mobileSelectionQuickBtn {
+    height: 28px;
+    font-size: 11px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .mobileSelectionQuickBtn:active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: rgba(var(--primary-color-rgb), 0.1);
+  }
+
+  .multiMasterMenu {
+    min-width: 108px;
+  }
+
+  .multiMasterMenuItem {
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .selectionModeCount {
+    min-width: 0;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .selectionModeChanges {
+    font-size: 11px;
+    padding: 1px 7px;
+    margin-left: 4px;
+  }
+
+  .selectionBulkControls>.selectionModeChanges {
+    margin-left: 6px;
+    margin-right: 0;
+  }
+
+  /* Gmail-like compact mobile multi-select: hide extra top/bottom paging bars while selecting */
+  body.selection-mode .countContainer,
+  body.selection-mode .navigation>.shownContainer,
+  body.selection-mode .linksContainer>.shownContainer.bottomPage,
+  body.selection-mode .visitorsContainer>.shownContainer.bottomPage {
+    display: none !important;
+  }
+
+
+
+  .selectionModeDivider {
+    display: none;
+  }
+
+  /* ── Right: action icons inline ── */
+  .selectionBulkControls {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+
+  .multiActionIcons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .multiActionIcons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .multiActionBtn {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .multiActionBtn i {
+    font-size: 21px;
+  }
+
+  .multiActionDivider {
+    margin: 0 2px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .multiActionDropdown {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(5%);
+    width: auto;
+    max-width: none;
+    max-height: min(76dvh, calc(100dvh - 86px));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    border-radius: 16px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+    z-index: 220;
+    overscroll-behavior: contain;
+  }
+
+  .multiActionDropdownHeader {
+    padding: 12px;
+  }
+
+  .multiActionDropdownTitle {
+    font-size: 15px;
+  }
+
+  .multiActionDropdownMetaRow {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .multiActionScopeToggle {
+    margin-left: auto;
+  }
+
+  .multiActionScopeBtn {
+    height: 28px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .multiActionDropdownSearch {
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .multiActionOption {
+    padding: 11px 16px;
+  }
+
+  .multiActionOption:active,
+  .multiActionOption:focus-within {
+    background-color: var(--background-color-light);
+  }
+
+  .multiActionOptionCheckbox {
+    width: 18px;
+    height: 18px;
+  }
+
+  .multiActionOptionCheckbox:focus-visible {
+    outline: 2px solid rgba(var(--primary-color-rgb), 0.45);
+    outline-offset: 2px;
+  }
+
+  .multiActionEmptyWithAction {
+    align-items: stretch;
+  }
+
+  .multiActionEmptyAction {
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .multiActionDropdownList {
+    max-height: min(48vh, 360px);
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .multiActionDropdownFooter {
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  body:not(.mobile-nav-hidden) .multiActionDropdownFooter {
+    padding-bottom: calc(10px + 56px + env(safe-area-inset-bottom));
+  }
+
+  .multiActionDropdownFooter .multiButton {
+    width: 100%;
+    height: 40px;
+  }
+
+  .multiActionDropdownFooter.has-create .multiButton {
+    width: 100%;
+  }
+
+  .groupCreateActionBtn {
+    min-height: 42px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .groupCreateIcon {
+    font-size: 20px;
+  }
+
+  /* Tag/Group dropdown in modals - larger touch targets */
+  #tagList,
+  #groupList {
+    max-height: 180px;
+  }
+
+  .tagItem,
+  .groupItem {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .groupCreateActionRow {
+    padding: 8px;
+  }
+
+  /* Multi-action dropdown quick toggle */
+  .multiActionQuickToggle {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .multiActionQuickBtn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .multiActionBtn:active,
+  .multiActionBtn:focus-visible,
+  .multiActionQuickBtn:active,
+  .multiActionQuickBtn:focus-visible,
+  .multiActionScopeBtn:active,
+  .multiActionScopeBtn:focus-visible,
+  .multiActionEmptyAction:active,
+  .multiActionEmptyAction:focus-visible {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), 0.12);
+  }
+
+  body.mobile-multi-dropdown-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  /* New classes for transformations */
+  .header-up {
+    transform: translateY(-60px);
+  }
+
+  .navContainer.navContainer-down {
+    transform: translate3d(0, calc(100% + env(safe-area-inset-bottom)), 0) !important;
+  }
+
+  .tooltip .tooltiptext {
+    display: none;
+  }
+
+  .searchContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 8px auto 0;
+    padding: 0;
+    align-items: stretch;
+    gap: 10px;
+    width: 95%;
+    max-width: 95%;
+    box-sizing: border-box;
+  }
+
+  /* Cancel the global max-width:98% / margin:auto that applies to .searchBar
+     and .filtersContainer so they fill the search container edge-to-edge.
+     !important beats the lower-specificity 1100px rule. */
+  .searchContainer .searchBar {
+    width: auto !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .searchContainer .filtersContainer {
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  body.page-users .usersContainer,
+  body.page-visitors .visitorsContainer,
+  body.page-groups #groupsContainer {
+    padding-top: 0;
+  }
+
+  body.page-users .headerSpacer,
+  body.page-visitors .headerSpacer,
+  body.page-groups .headerSpacer {
+    height: 50px;
+  }
+
+  body.page-groups .searchContainer,
+  body.page-visitors .searchContainer {
+    margin-top: 0;
+  }
+
+  body.page-groups #groupsContainer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px 10px;
+  }
+
+  /* Hide view-mode switcher and size slider on mobile — always compact */
+  #groupViewModes,
+  #groupSizeControl {
+    display: none !important;
+  }
+
+  /* ── Detailed mode: simplify meta row, remove dead padding ── */
+  body.mode-detailed .linkHeader .titleContainer {
+    padding-right: 0;
+  }
+
+  /* Keep only link-count + modified date inline; hide description & created */
+  body.page-groups.mode-detailed .groupMetaDescription,
+  body.page-groups.mode-detailed .groupMetaItem:nth-child(2) {
+    display: none !important;
+  }
+
+  body.page-groups.mode-detailed .groupMetaInline {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Duplicate title inside expanded body is redundant on mobile */
+  body.page-groups .groupOpenTitle {
+    display: none !important;
+  }
+
+  /* ── Compact mode: tighten quick-action overlay on small cards ── */
+  body.mode-compact .groupQuickActions {
+    padding: 16px 4px 4px;
+    gap: 2px;
+  }
+
+  body.mode-compact .groupQuickActions .quickAction {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* ── Thumbnail mode: 16:9 ratio instead of 1:1 (full width = too tall) ── */
+  body.mode-thumbnail .outerLinkContainer {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Selection bar: let JS drive position via --multi-select-live-top (same as desktop) */
+  .multiSelect.active {
+    --multi-select-sticky-top: 60px;
+    padding: 0;
+  }
+
+  body.mobile-nav-hidden .multiSelect.active {
+    --multi-select-sticky-top: 0px;
+  }
+
+  /* Launch / create button: sit above the 56px bottom nav */
+  .newLinkContainer,
+  .newUserContainer {
+    bottom: calc(56px + env(safe-area-inset-bottom) + 4px);
+    right: 16px;
+  }
+
+  .newLinkContainer.with-pagination,
+  .newUserContainer.with-pagination {
+    bottom: calc(56px + env(safe-area-inset-bottom) + 52px);
+  }
+
+  /* ── Selection mode: grid cards (compact / thumbnail) ── */
+
+  /* Cancel slide for ALL grid cards when selection-mode is active */
+  body.selection-mode.mode-compact .linkContainer.formActive:not(.open),
+  body.selection-mode.mode-thumbnail .linkContainer.formActive:not(.open) {
+    transform: none !important;
+  }
+
+  body.selection-mode.mode-compact .linkContainer.formActive:not(.open) .fixedLocation,
+  body.selection-mode.mode-thumbnail .linkContainer.formActive:not(.open) .fixedLocation {
+    transform: none !important;
+  }
+
+  /* Show checkbox overlaid on the image for every card in selection mode */
+  body.selection-mode.mode-compact .titleContainer .linkForm,
+  body.selection-mode.mode-thumbnail .titleContainer .linkForm {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Hover on UN-selected grid cards: cancel lift/glow, keep neutral border */
+  body.selection-mode.mode-compact .outerLinkContainer:hover .linkContainer:not(.open):not(.is-selected),
+  body.selection-mode.mode-thumbnail .outerLinkContainer:hover .linkContainer:not(.open):not(.is-selected) {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border-color) !important;
+    background: var(--background-color) !important;
+  }
+
+  /* Selected (checked) grid cards: teal border + radial gradient — same language as links page */
+  body.selection-mode.mode-compact .linkContainer.is-selected,
+  body.selection-mode.mode-thumbnail .linkContainer.is-selected {
+    border: 2px solid var(--primary-color) !important;
+    background: radial-gradient(circle,
+        rgba(var(--primary-color-rgb), 0.07) 0%,
+        var(--background-color) 2%,
+        var(--background-color-light) 100%) !important;
+  }
+
+  /* ── Selection mode: users page (list view) on mobile ── */
+
+  /* Slide all non-open user cards right to expose the checkbox (same
+     mechanism as desktop hover, but applied unconditionally on mobile
+     since there is no hover state on touch devices). */
+  body.page-users.selection-mode .userContainer:not(.open) {
+    transform: translate(35px, 0);
+  }
+
+  /* Keep the checkbox visually stationary while the card slides right.
+     The counter-translate matches the page-users desktop rule so the
+     checkbox appears at the card's original left edge. */
+  body.page-users.selection-mode .userContainer:not(.open) .userForm {
+    visibility: visible;
+    transform: translate(-35px, -50%);
+  }
+
+  /* Cards that expand (open) reset to no slide. */
+  body.page-users.selection-mode .userContainer.open {
+    transform: none;
+  }
+
+  body.mode-detailed #groupsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  body.mode-compact #groupsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px;
+  }
+
+  body.mode-thumbnail #groupsContainer {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* Touch: always show quick actions on compact and thumbnail since no hover */
+  body.mode-compact .groupQuickActions,
+  body.mode-thumbnail .groupQuickActions {
+    opacity: 1;
+  }
+
+  body.page-groups #groupsContainer .linkContainer {
+    width: 100%;
+    max-width: none;
+  }
+
+  body.mode-thumbnail #groupsContainer .titleContainer {
+    align-items: flex-start;
+  }
+
+  body.page-visitors .visitorContainer {
+    width: 96%;
+    padding: 8px;
+    overflow: hidden;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-height: auto;
+    padding: 0;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .titleContainer,
+  body.page-visitors .visitorHeader.visitorViewMode .titleWrapper {
+    width: 100%;
+    min-width: 0;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .visitorTitle {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px 0;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .shownData {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .visitorData {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .secondaireInfo,
+  body.page-visitors .visitorHeader.visitorViewMode .secondaireInfo.elongate {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 6px;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .visitData {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .viewModeTitleContainer {
+    width: 100%;
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  body.page-visitors .visitorHeader.visitorViewMode .viewModeTitle {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Mobile playful pagination input */
+  .mobilePagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 8px auto 4px auto;
+    width: 95%;
+    max-width: 420px;
+  }
+
+  .mobileLimitInput {
+    width: 66px;
+    min-width: 48px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: var(--input-radius, var(--border-radius));
+    border: 2px solid var(--primary-color);
+    padding: 6px 8px;
+    background: var(--background-color);
+    color: var(--text-color);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .mobileTotalText {
+    color: var(--text-color);
+    font-size: 14px;
+  }
+
+  /* Center pagination and place the input above it */
+  .shownContainer {
+    flex-direction: column;
+    /* stack the mobile input above pagination */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 12px auto 2px;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+
+  .shown {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    /* keep shownSelect centered */
+    margin-bottom: 6px;
+  }
+
+  /* Right-align the page numbers within their container on larger sizes,
+     but on mobile we center the pages so they appear playful in the middle */
+  .pageContainer {
+    margin: 0;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    /* center page numbers on mobile */
+    align-items: center;
+    width: auto;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 6px 10px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+  }
+
+  .pageContainer .pageButton[data-action="first"] {
+    margin-right: 8px;
+  }
+
+  .pageContainer .pageButton[data-action="last"] {
+    margin-left: 8px;
+  }
+
+  /* Keep the page buttons compact on mobile */
+  .pageButton,
+  .shownSelect {
+    height: 34px;
+    min-width: 34px;
+    font-size: 14px;
+  }
+
+  .pageButton {
+    border: 1px solid transparent;
+    border-radius: 8px;
+  }
+
+  .pageButton.activePage {
+    border-color: var(--primary-color) !important;
+    background-color: var(--background-color-light) !important;
+    color: var(--primary-color) !important;
+  }
+
+  /* Make mobileLimitSelect match shownSelect appearance */
+  .mobileLimitSelect {
+    height: 36px;
+    min-width: 48px;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: var(--input-radius, var(--border-radius));
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: var(--background-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Small tweak so the two selects line up nicely when stacked */
+  .mobilePagination .mobileLimitSelect,
+  .mobilePagination .shownSelect {
+    vertical-align: middle;
+  }
+
+  /* Ensure borders and text align with the search bar/text from Links 1 */
+  .shortlinkBody,
+  .fullLinkCon,
+  .countContainer,
+  .shownContainer {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .countContainer {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .countContainer .countRow {
+    row-gap: 10px;
+  }
+
+  .linkAction {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+  }
+
+  .linkAction:hover {
+    color: var(--text-color-dark);
+  }
+
+  .userDeviceStatsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .userDevicePanelHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .userDeviceRefreshButton {
+    width: 100%;
+    min-height: 34px;
+  }
+
+  .userDeviceRefreshTooltip {
+    width: 100%;
+  }
+
+  .userActionBarBlock {
+    margin-bottom: 8px;
+  }
+
+  .userActionBar {
+    margin: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .userActionBar .action,
+  .userActionBar .tooltip {
+    width: 100%;
+  }
+
+  .userActionBar .linkAction {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 34px;
+    padding: 8px 6px;
+    font-size: 12px;
+    gap: 6px;
+    background: transparent;
+    border: 0;
+  }
+
+  .userActionBar .linkAction .userActionIcon {
+    font-size: 16px;
+  }
+
+  .userActionBar .actionDanger .linkAction {
+    color: var(--button-danger-color);
+  }
+
+  .userDeviceSessionItemHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .userDeviceSessionMeta {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .userDeviceRevokeTooltip {
+    width: 100%;
+  }
+
+  .userDeviceRevokeButton {
+    width: 100%;
+    min-height: 32px;
+  }
+
+  .qrFullCon {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .fullLinkCon,
+  .qrCon {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tagsGroupsCon {
+    flex-direction: row;
+  }
+
+  .tagsCon,
+  .groupsCon {
+    display: inline-flex;
+    max-width: calc(50% - 5px);
+    width: calc(50% - 5px);
+    padding: 5px;
+    transition: 0.4s;
+    justify-content: flex-start;
+  }
+
+  .tagsCon.full,
+  .groupsCon.full {
+    width: 100%;
+  }
+
+  .tagContainer {
+    white-space: nowrap;
+  }
+
+  .daviBorder {
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dateEntry {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .date.mobileShow {
+    white-space: nowrap;
+  }
+
+  .mobileHide {
+    display: none !important;
+  }
+
+  .mobileShow {
+    display: block;
+  }
+
+  .customTabOnetime {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .secondaireInfo.elongate {
+    width: 100%;
+  }
+
+  .shortlinkBody,
+  .fullLinkCon,
+  .countContainer,
+  .shownContainer {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shownContainer.bottomPage {
+    position: static;
+    justify-content: center;
+    padding: 14px 0 calc(70px + env(safe-area-inset-bottom)) 0;
+    background-color: transparent;
+  }
+
+  /* Safety override: keep top count/pager rows hidden on compact layout. */
+  .navigation>.countContainer.desktopHide,
+  .navigation>.shownContainer.desktopHide {
+    display: none !important;
+  }
+
+  /* ── Expanded link body: stack everything vertically on mobile ── */
+
+  /* Actions row: wrap buttons into a 3-column grid */
+  .linkContainer.open .actions.sameLine {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .linkContainer.open .actions.sameLine .action {
+    display: flex;
+    justify-content: center;
+  }
+
+  .linkContainer.open .actions.sameLine .linkAction {
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    gap: 2px;
+    padding: 8px 4px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    justify-content: center;
+    background-color: var(--background-color-light);
+  }
+
+  /* Date/stats row: wrap into 2 columns instead of overflowing */
+  .daviBorder {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .daviBorder .dateEntry {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 4px;
+  }
+
+  .daviBorder .viewsCon {
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+
+  /* Tags + groups: stack vertically */
+  .tagsGroupsCon {
+    flex-direction: column;
+  }
+
+  .tagsCon,
+  .groupsCon {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Full URL: prevent overflow */
+  .fullLinkCon .fullLink {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    display: block;
+  }
+
+  .fullLinkCon.destinationDragZone {
+    overflow-x: auto;
+  }
+
+  .fullLinkCon.destinationDragZone .fullLink {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: nowrap;
+    max-width: none;
+    min-width: max-content;
+    display: inline-block;
+  }
+
+  /* Visitor count: sit between title (1.0) and date (0.5) in visual hierarchy */
+  .visitCounter {
+    opacity: 0.65;
+  }
+
+  /* ── Infinite scroll: hide pagination, show spinner ── */
+  body.infinite-scroll-active .linksContainer>.shownContainer.bottomPage,
+  body.infinite-scroll-active .navigation>.shownContainer {
+    display: none !important;
+  }
+
+  .infiniteScrollSentinel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    padding: 16px 0 80px;
+  }
+
+  .infiniteScrollSpinner {
+    display: none;
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: infiniteSpin 0.7s linear infinite;
+  }
+
+  .infiniteScrollSpinner.loading {
+    display: block;
+  }
+
+  @keyframes infiniteSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .infiniteScrollEnd {
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.5;
+    font-size: 13px;
+    padding: 12px 0 80px;
+  }
+}

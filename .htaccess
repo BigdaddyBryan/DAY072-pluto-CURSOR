@@ -1,0 +1,33 @@
+#1.03
+
+RewriteEngine On
+
+# Stop processing if already in the /public directory
+RewriteRule ^public/ - [L]
+
+# Security Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+  Header set Referrer-Policy "same-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+  Header set Content-Security-Policy "upgrade-insecure-requests"
+</IfModule>
+
+# Static resources if they exist
+RewriteCond %{DOCUMENT_ROOT}/public/$1 -f
+RewriteRule (.+) public/$1 [L]
+
+# Route all other requests
+RewriteRule (.*) public/index.php [L]
+
+<FilesMatch "\.txt$">
+    SetHandler default-handler
+</FilesMatch>
+
+# Allow direct access to security.txt and pgp-key.txt
+RewriteRule ^security\.txt$ - [L]
+RewriteRule ^pgp-key\.txt$ - [L]
+

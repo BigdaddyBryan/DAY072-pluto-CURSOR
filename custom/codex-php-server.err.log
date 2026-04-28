@@ -1,0 +1,106 @@
+[Fri Apr 24 16:44:15 2026] PHP 8.3.12 Development Server (http://127.0.0.1:8123) started
+[Fri Apr 24 16:44:51 2026] 127.0.0.1:50736 Accepted
+[Fri Apr 24 16:44:51 2026] 127.0.0.1:50736 [401]: POST /multiSelectDropdown
+[Fri Apr 24 16:44:51 2026] 127.0.0.1:50736 Closing
+[Fri Apr 24 16:44:53 2026] 127.0.0.1:62242 Accepted
+[Fri Apr 24 16:44:53 2026] 127.0.0.1:62242 [302]: GET /users
+[Fri Apr 24 16:44:53 2026] 127.0.0.1:62242 Closing
+[Fri Apr 24 16:44:54 2026] 127.0.0.1:62245 Accepted
+[Fri Apr 24 16:44:54 2026] 127.0.0.1:62245 [401]: POST /multiSelect
+[Fri Apr 24 16:44:54 2026] 127.0.0.1:62245 Closing
+[Fri Apr 24 16:46:12 2026] 127.0.0.1:55504 Accepted
+[Fri Apr 24 16:46:12 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:46:12 2026] PHP Stack trace:
+[Fri Apr 24 16:46:12 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:46:12 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:46:12 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:46:12 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:46:12 2026] 127.0.0.1:55504 [200]: GET /users
+[Fri Apr 24 16:46:12 2026] 127.0.0.1:55504 Closing
+[Fri Apr 24 16:46:26 2026] 127.0.0.1:55529 Accepted
+[Fri Apr 24 16:46:26 2026] 127.0.0.1:55529 [400]: POST /multiSelectDropdown
+[Fri Apr 24 16:46:26 2026] 127.0.0.1:55529 Closing
+[Fri Apr 24 16:47:11 2026] 127.0.0.1:60253 Accepted
+[Fri Apr 24 16:47:11 2026] 127.0.0.1:60253 [401]: POST /multiSelectDropdown
+[Fri Apr 24 16:47:11 2026] 127.0.0.1:60253 Closing
+[Fri Apr 24 16:47:27 2026] 127.0.0.1:49460 Accepted
+[Fri Apr 24 16:47:27 2026] 127.0.0.1:49460 [200]: POST /multiSelectDropdown
+[Fri Apr 24 16:47:27 2026] 127.0.0.1:49460 Closing
+[Fri Apr 24 16:47:44 2026] 127.0.0.1:49490 Accepted
+[Fri Apr 24 16:47:44 2026] 127.0.0.1:49490 [200]: POST /multiSelect
+[Fri Apr 24 16:47:44 2026] 127.0.0.1:49490 Closing
+[Fri Apr 24 16:49:11 2026] 127.0.0.1:55300 Accepted
+[Fri Apr 24 16:49:11 2026] 127.0.0.1:55300 [400]: POST /multiSelect
+[Fri Apr 24 16:49:11 2026] 127.0.0.1:55300 Closing
+[Fri Apr 24 16:49:25 2026] 127.0.0.1:63219 Accepted
+[Fri Apr 24 16:49:25 2026] 127.0.0.1:63219 [200]: POST /multiSelect
+[Fri Apr 24 16:49:25 2026] 127.0.0.1:63219 Closing
+[Fri Apr 24 16:49:37 2026] 127.0.0.1:63064 Accepted
+[Fri Apr 24 16:49:37 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:49:37 2026] PHP Stack trace:
+[Fri Apr 24 16:49:37 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:49:37 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:49:37 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:49:37 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:49:37 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:49:37 2026] PHP Stack trace:
+[Fri Apr 24 16:49:37 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:49:37 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:49:37 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:49:37 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:49:37 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:49:37 2026] PHP Stack trace:
+[Fri Apr 24 16:49:37 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:49:37 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:49:37 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:49:37 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:49:37 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:49:37 2026] PHP Stack trace:
+[Fri Apr 24 16:49:37 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:49:37 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:49:37 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:49:37 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:49:37 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:49:37 2026] PHP Stack trace:
+[Fri Apr 24 16:49:37 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:49:37 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:49:37 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:49:37 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:49:37 2026] 127.0.0.1:63064 [200]: GET /users
+[Fri Apr 24 16:49:37 2026] 127.0.0.1:63064 Closing
+[Fri Apr 24 16:50:50 2026] 127.0.0.1:55107 Accepted
+[Fri Apr 24 16:50:50 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:50:50 2026] PHP Stack trace:
+[Fri Apr 24 16:50:50 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:50:50 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:50:50 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:50:50 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:50:50 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:50:50 2026] PHP Stack trace:
+[Fri Apr 24 16:50:50 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:50:50 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:50:50 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:50:50 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:50:50 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:50:50 2026] PHP Stack trace:
+[Fri Apr 24 16:50:50 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:50:50 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:50:50 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:50:50 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:50:50 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:50:50 2026] PHP Stack trace:
+[Fri Apr 24 16:50:50 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:50:50 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:50:50 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:50:50 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:50:50 2026] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php on line 344
+[Fri Apr 24 16:50:50 2026] PHP Stack trace:
+[Fri Apr 24 16:50:50 2026] PHP   1. {main}() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:0
+[Fri Apr 24 16:50:50 2026] PHP   2. include() C:\Users\bryva\Documents\DAY072-pluto\public\index.php:339
+[Fri Apr 24 16:50:50 2026] PHP   3. include() C:\Users\bryva\Documents\DAY072-pluto\pages\users.php:76
+[Fri Apr 24 16:50:50 2026] PHP   4. strtotime($datetime = NULL) C:\Users\bryva\Documents\DAY072-pluto\pages\components\userContainer.php:344
+[Fri Apr 24 16:50:50 2026] 127.0.0.1:55107 [200]: GET /users
+[Fri Apr 24 16:50:50 2026] 127.0.0.1:55107 Closing
+[Fri Apr 24 16:51:06 2026] 127.0.0.1:59463 Accepted
+[Fri Apr 24 16:51:06 2026] 127.0.0.1:59463 [200]: POST /multiSelectDropdown
+[Fri Apr 24 16:51:06 2026] 127.0.0.1:59463 Closing

@@ -1,0 +1,46 @@
+{
+  "links": {
+    "title": "Links",
+    "link": "/links"
+  },
+
+  "home": {
+    "title": "Home",
+    "link": "/home"
+  },
+
+  "history": {
+    "title": "History",
+    "link": "/history"
+  },
+
+  "users": {
+    "title": "Users",
+    "link": "/users"
+  },
+
+  "visitors": {
+    "title": "Visitors",
+    "link": "/visitors"
+  },
+
+  "visits": {
+    "title": "Visits",
+    "link": "/visits"
+  },
+
+  "admin": {
+    "title": "Admin",
+    "link": "/admin"
+  },
+
+  "statistics": {
+    "title": "Statistics",
+    "link": "/statistics"
+  },
+
+  "groups": {
+    "title": "Manage Groups",
+    "link": "/groups"
+  }
+}

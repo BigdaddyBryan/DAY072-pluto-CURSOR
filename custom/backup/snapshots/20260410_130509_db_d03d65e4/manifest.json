@@ -1,0 +1,13 @@
+{
+    "snapshot_id": "20260410_130509_db_d03d65e4",
+    "type": "db",
+    "created_at_iso": "2026-04-10T13:05:09+00:00",
+    "created_at_epoch": 1775826309,
+    "reason": "manual",
+    "requested_by": "bryan@daylinq.nl",
+    "database": {
+        "file": "database.db",
+        "size": 1286144,
+        "sha256": "18b3b48a1f30cfa1cfd1a1700623898d7372561d8e49f9e08d2be6f492181b1a"
+    }
+}

@@ -1,0 +1,47 @@
+{
+  "deleteLink": "Deleted Link Successfully",
+
+  "deleteVisitor": "Deleted Visitor Successfully",
+
+  "deleteUser": "Deleted User Successfully",
+
+  "deleteGroup": "Deleted Group Successfully",
+
+  "copyQRImage": "Copied QR Image to Clipboard",
+
+  "copyLink": "Copied Link to Clipboard",
+
+  "activeStatus": "Activated Link",
+
+  "archivedStatus": "Archived Link",
+
+  "multiSelectDelete": "%link_amount% item(s) deleted successfully",
+
+  "multiSelectDeleteGroups": "%link_amount% group(s) deleted. Click Undo to restore.",
+
+  "multiSelectTagAdd": "Added tag \"%tag%\" to %link_amount% item(s).",
+
+  "multiSelectGroupAdd": "Added %link_amount% item(s) to \"%tag%\".",
+
+  "multiSelectTagDel": "Removed tag \"%tag%\" from %link_amount% item(s).",
+
+  "multiSelectGroupDel": "Removed %link_amount% item(s) from \"%tag%\".",
+
+  "confirmMultiSelectDelete": "Are you sure you want to delete %link_amount% item(s)?",
+
+  "confirmMultiSelectTagAdd": "Are you sure you want to add %link_amount% item(s) to \"%tag%\"?",
+
+  "confirmMultiSelectGroupAdd": "Are you sure you want to add %link_amount% item(s) to \"%tag%\"?",
+
+  "confirmMultiSelectTagDel": "Are you sure you want to remove \"%tag%\" from %link_amount% item(s)?",
+
+  "confirmMultiSelectGroupDel": "Are you sure you want to remove %link_amount% item(s) from \"%tag%\"?",
+
+  "addFavourite": "Added to Favourites",
+
+  "removeFavourite": "Removed from Favourites",
+
+  "backupMessage": "Backup Completed",
+
+  "backupError": "Backup Failed"
+}
