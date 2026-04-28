@@ -1496,11 +1496,15 @@
   }
 
   body.page-users .linkHeader {
-    padding: 8px 12px;
+    padding: 6px 10px;
+  }
+
+  body.page-users .userContainer {
+    padding: 4px;
   }
 
   body.page-users .outerUserContainer {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   /* Ensure the entire user row is comfortably tappable. */
