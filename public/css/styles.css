@@ -3860,6 +3860,27 @@ body.selection-mode .visitorContainer.is-selected {
   display: none;
 }
 
+/* Links page: use explicit height animation to avoid choppy toggles. */
+body.page-links .linkContainer .linkBodyWrapper {
+  display: block;
+  height: 0;
+  grid-template-rows: none;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+  will-change: height, opacity;
+}
+
+body.page-links .linkContainer.open .linkBodyWrapper {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page-links .linkContainer .linkBodyWrapper {
+    transition: none !important;
+  }
+}
+
 .shortlinkBody {
   width: calc(100% - 10px);
   margin: auto auto;
