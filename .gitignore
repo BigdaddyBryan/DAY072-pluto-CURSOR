@@ -1,0 +1,5 @@
+custom/sessions/
+public/json/dbMigrationStatus.json
+public/json/deviceSessions.json
+public/localUpdated.php
+custom/codex-php-server.*.log
