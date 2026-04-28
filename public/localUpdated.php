@@ -1,6 +1,8 @@
 <?php
 $lastModifiedTime = 1777385735;
-$storedFileList = array (
+$source = 'localhost:8000';
+$lastSyncCheck = 1777388304;
+$localFileList = array (
   0 => '/css/custom-dark.css',
   1 => '/css/custom-light.css',
   2 => '/images/icons/favicon-192x192.svg',

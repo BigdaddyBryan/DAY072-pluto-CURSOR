@@ -36,14 +36,18 @@
   }
 
   /* Allow link titles to wrap so short titles show in full and long titles
-     never get cut off with "..." — only show ellipsis on visitor titles */
+     never get cut off with "..." — only show ellipsis on visitor titles.
+     `word-break: break-word` is invalid CSS that some browsers map to
+     `break-all`, which breaks names into individual letters. Use
+     `overflow-wrap: anywhere` so wrapping only happens when truly needed. */
   .linkTitle {
     display: block;
-    max-width: 90%;
+    max-width: 100%;
     padding: 12px 0;
     white-space: normal;
-    overflow-wrap: break-word;
-    word-break: break-word;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-height: 1.3;
   }
 
   .visitorTitle {
@@ -1430,5 +1434,393 @@
     opacity: 0.5;
     font-size: 13px;
     padding: 12px 0 80px;
+  }
+
+  /* ─── Users page mobile polish ─────────────────────────────────────────
+     The desktop layout uses a flex row with the title + user data inline.
+     On mobile that produced cramped names (wrapped letter-by-letter) and
+     a tight tap target for opening the card. Stack the row vertically so
+     long names breathe and the meta line sits below the avatar. */
+  body.page-users .userContainer:not(.open) .titleContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
+    row-gap: 4px;
+    padding: 4px 0;
+    min-height: 44px;
+  }
+
+  body.page-users .userContainer:not(.open) .userNameContainer {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    gap: 8px;
+  }
+
+  body.page-users .userContainer:not(.open) .userNameContainer .linkTitle {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+
+  body.page-users .userContainer:not(.open) .userData {
+    flex: 0 0 auto;
+    width: auto;
+    margin-left: auto;
+    gap: 10px;
+  }
+
+  body.page-users .userContainer:not(.open) .userData p {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  body.page-users .userContainer:not(.open) .userNameAvatar {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  body.page-users .userContainer .userRoleIcon {
+    font-size: 18px;
+  }
+
+  body.page-users .linkHeader {
+    padding: 8px 12px;
+  }
+
+  body.page-users .outerUserContainer {
+    margin-bottom: 6px;
+  }
+
+  /* Ensure the entire user row is comfortably tappable. */
+  body.page-users .userContainer .titleContainer {
+    min-height: 44px;
+  }
+
+  /* ─── Users page multi-select on mobile ────────────────────────────────
+     The card slides 35px to the right to expose the checkbox. The checkbox
+     hit area was tiny (18px) which made selection unreliable on touch.
+     Widen the hit area and make sure it stays clickable above the card. */
+  body.page-users.selection-mode .userContainer:not(.open) {
+    transform: translate(40px, 0);
+  }
+
+  body.page-users.selection-mode .userContainer:not(.open) .userForm {
+    transform: translate(-40px, -50%);
+  }
+
+  body.page-users.selection-mode .userForm,
+  body.selection-mode .linkForm,
+  body.selection-mode .visitorForm {
+    /* Bigger touch hit area around the visual checkbox */
+    padding: 12px 14px;
+    margin-left: -14px;
+    margin-top: 0;
+  }
+
+  body.page-users.selection-mode .userCheckbox,
+  body.selection-mode .linkCheckbox,
+  body.selection-mode .visitorCheckbox {
+    width: 22px;
+    height: 22px;
+  }
+
+  body.page-users.selection-mode .userCheckbox::after,
+  body.selection-mode .linkCheckbox::after,
+  body.selection-mode .visitorCheckbox::after {
+    font-size: 16px;
+  }
+
+  /* Selected user row gets a soft tint + accent border for clarity. */
+  body.page-users.selection-mode .userContainer.is-selected,
+  body.selection-mode .linkContainer.is-selected {
+    background: linear-gradient(0deg,
+      rgba(var(--primary-color-rgb), 0.08),
+      rgba(var(--primary-color-rgb), 0.08)),
+      var(--background-color);
+    border-bottom: 1px solid var(--primary-color);
+  }
+
+  /* ─── Multi-select toolbar on mobile ───────────────────────────────────
+     Make the bulk-action bar sit visually clearly under the search bar
+     with a clear separator and consistent spacing. Avoid covering the
+     first card by reserving enough space below it. */
+  .multiSelect.active {
+    padding: 6px 0 8px;
+    box-shadow: 0 6px 14px -8px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .selectionModeHeader {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 12px;
+    height: 48px;
+    box-sizing: border-box;
+  }
+
+  .selectionModeCount {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+  }
+
+  /* Tighten action icons so 4-5 buttons fit comfortably on iPhone-narrow. */
+  .multiActionIcons {
+    gap: 2px;
+  }
+
+  .multiActionBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .multiActionBtn:active {
+    background-color: rgba(var(--primary-color-rgb), 0.12);
+  }
+
+  /* ─── Links page mobile polish ─────────────────────────────────────────
+     Ensure cards aren't crammed against each other and the open-state
+     padding is consistent. */
+  body.page-links .outerLinkContainer {
+    margin-bottom: 6px;
+  }
+
+  body.page-links .linkContainer {
+    width: 95%;
+    padding: 10px 12px;
+  }
+
+  body.page-links .linkContainer.open {
+    padding: 12px 14px;
+  }
+
+  body.page-links .linkContainer:not(.open) .linkTitle {
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* The fab "Create" / scroll-to-top buttons are floating above the bottom
+     nav. Make sure they don't steal taps from the search bar by clamping
+     their z-index and adding padding-bottom to the list so the last card
+     isn't hidden under the bottom nav + fab. */
+  .linksContainer,
+  .usersContainer,
+  .visitorsContainer,
+  #groupsContainer {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+
+  /* ─── Link expanded body actions: tap targets ──────────────────────── */
+  .linkContainer.open .actions.sameLine .linkAction {
+    min-height: 56px;
+    border: 1px solid transparent;
+  }
+
+  .linkContainer.open .actions.sameLine .linkAction:active {
+    border-color: var(--primary-color);
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+  }
+
+  /* ─── Modals on mobile: comfort & consistency ──────────────────────── */
+  .modal-content:not(.modal-popup) {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 56px !important;
+  }
+
+  /* Popup modals (delete confirm, unsaved changes, qr) — give them a
+     consistent comfortable padding and ensure footer buttons stack
+     full-width when there isn't room. */
+  .modal-content.modal-popup {
+    padding: 22px 18px 18px !important;
+    gap: 12px;
+  }
+
+  .modal-content.modal-popup h2,
+  .modal-content.modal-popup h3 {
+    font-size: 17px;
+    margin: 0 0 6px;
+    padding-right: 36px; /* avoid overlap with close button */
+    line-height: 1.3;
+  }
+
+  .modal-content.modal-popup p {
+    font-size: 14px;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Confirm / unsaved-changes / multi-confirm action rows: stack on narrow
+     screens so the primary action is always full-width and reachable. */
+  .popup-modal-content .multiConfirmYes,
+  .popup-modal-content .multiConfirmNo,
+  .modal-content.modal-popup .multiConfirmYes,
+  .modal-content.modal-popup .multiConfirmNo {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .popup-modal-content,
+  .modal-content.modal-popup {
+    /* Narrow screens benefit from button rows stacking vertically. */
+    align-items: stretch;
+  }
+
+  /* Close (cross) buttons: make sure focus outline doesn't bleed into the
+     modal content. The base rule sets a 3px outline + offset which can
+     bleed past the modal radius on narrow popups. */
+  .crossLinkModal,
+  .closeLoginModal,
+  .closeTagGroupButton,
+  .crossIcon,
+  .groupPreviewClose,
+  .closePopup,
+  .modalSizeToggle {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .crossLinkModal:focus-visible,
+  .closeLoginModal:focus-visible,
+  .closeTagGroupButton:focus-visible,
+  .crossIcon:focus-visible,
+  .groupPreviewClose:focus-visible,
+  .closePopup:focus-visible,
+  .modalSizeToggle:focus-visible {
+    outline-width: 2px !important;
+    outline-offset: 1px !important;
+  }
+
+  /* ─── Sticky toolbar: prevent the multi-select bar from covering the
+     first card. The body padding is set via --multi-select-reserve-space
+     by JS, but on mobile when the bar is fixed at the top it can still
+     overlap because the searchContainer has its own bottom margin. Make
+     sure both conspire to provide a clear gap. */
+  body.selection-mode .searchContainer {
+    margin-bottom: var(--multi-select-reserve-space, 64px);
+  }
+
+  /* ─── Search bar mobile spacing & no-overflow ──────────────────────── */
+  .searchContainer {
+    width: calc(100% - 16px);
+    max-width: calc(100% - 16px);
+    margin: 8px 8px 0;
+  }
+
+  /* ─── Bottom nav doesn't crash with FAB ─────────────────────────────── */
+  .newLinkContainer,
+  .newUserContainer {
+    z-index: 11;
+  }
+
+  /* ─── Consistent button radius/heights for the toolbar buttons ─────── */
+  .filterButton,
+  .sortButton,
+  .clearButton,
+  .resetButton,
+  .selectModeButton,
+  .filterContainer,
+  .sortContainer {
+    border-radius: var(--border-radius);
+  }
+
+  /* ─── Ensure no horizontal overflow from wide tag chips ─────────────── */
+  body.page-links .linkContainer,
+  body.page-users .userContainer,
+  body.page-visitors .visitorContainer {
+    overflow-x: hidden;
+  }
+
+  body.page-links .linkContainer.open,
+  body.page-users .userContainer.open,
+  body.page-visitors .visitorContainer.open {
+    overflow-x: visible;
+  }
+
+  /* ─── Group cards margin-bottom ─────────────────────────────────────── */
+  body.page-groups #groupsContainer {
+    padding: 0 10px calc(72px + env(safe-area-inset-bottom));
+  }
+
+  /* ─── Ensure content underneath the bottom nav can still be scrolled
+     into view. The infinite-scroll sentinel padding already accounts for
+     this on links, but the visitors and groups pages also need it. */
+  body.page-visitors .visitorsContainer,
+  body.page-groups #groupsContainer {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  /* ─── White text on light buttons fix ──────────────────────────────────
+     The pageButton.activePage rule sets text color to var(--primary-color)
+     in mobile.css already. Make sure the multiActionDropdownApply button
+     in light mode keeps a high contrast (it uses --primary-color bg with
+     --button-primary-text-color). For the create-group ghost button on
+     light backgrounds, use the regular text color. */
+  .multiActionDropdownFooter .multiButtonGhost {
+    color: var(--text-color);
+    background: var(--background-color-light);
+    border: 1px solid var(--border-color);
+  }
+
+  .multiActionDropdownFooter .multiButtonGhost:active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+}
+
+/* ============================================================== */
+/* iPhone SE / very narrow screens (≤375px) extra tightening */
+/* ============================================================== */
+@media screen and (max-width: 375px) {
+  .selectionModeHeader {
+    padding: 0 8px;
+  }
+
+  .selectionModeCount {
+    font-size: 13px;
+    max-width: 80px;
+  }
+
+  .multiActionBtn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .multiActionBtn i {
+    font-size: 19px;
+  }
+
+  body.page-users .userContainer:not(.open) .userData {
+    gap: 8px;
+  }
+
+  body.page-users .userContainer:not(.open) .userData p {
+    font-size: 11px;
+  }
+
+  /* Action grid in the open card: 2 columns instead of 3 to keep labels
+     readable without horizontal overflow. */
+  .linkContainer.open .actions.sameLine,
+  .userActionBar {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }

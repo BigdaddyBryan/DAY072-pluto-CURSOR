@@ -1,0 +1,28 @@
+{
+    "sessions": [
+        {
+            "session_id": "9070e93127ca8e87",
+            "user_id": "2",
+            "email": "brian@daylinq.nl",
+            "token_hash": "7e035559fd0e7e25eb28068fb001be270527282f46b54d213c41a6ab4d0743bb",
+            "created_at": 1777387646,
+            "last_seen_at": 1777387646,
+            "ip": "127.0.0.1",
+            "user_agent": "curl/8.5.0",
+            "revoked": false,
+            "revoked_at": null
+        },
+        {
+            "session_id": "239ec8c1d79efb33",
+            "user_id": "2",
+            "email": "brian@daylinq.nl",
+            "token_hash": "e266ca5fafa5929241c41b6a66f7dbb13e5275edc069f25127c00830ad885f67",
+            "created_at": 1777387773,
+            "last_seen_at": 1777388303,
+            "ip": "127.0.0.1",
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+            "revoked": false,
+            "revoked_at": null
+        }
+    ]
+}
