@@ -103,11 +103,6 @@
     "groups": "groups",
     "selected": "selected",
     "pages": "pages",
-    "all_results": "All results",
-    "all_results_selected": "All results selected",
-    "excluded": "excluded",
-    "superall_large_selection_warning": "Large selection: {count} items will be affected.",
-    "superall_cleared_filter_change": "All-results selection was cleared after filter changes.",
     "select_all": "Select all",
     "deselect_all": "Deselect all",
     "clear_selection": "Clear selection",
@@ -279,7 +274,6 @@
     "ip_copied": "IP copied"
   },
   "users": {
-    "added_links": "Added links",
     "edit": "Edit",
     "delete": "Delete",
     "delete_users": "Delete users",

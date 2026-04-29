@@ -103,11 +103,6 @@
     "groups": "groepen",
     "selected": "geselecteerd",
     "pages": "pagina's",
-    "all_results": "Alle resultaten",
-    "all_results_selected": "Alle resultaten geselecteerd",
-    "excluded": "uitgesloten",
-    "superall_large_selection_warning": "Grote selectie: {count} items worden bewerkt.",
-    "superall_cleared_filter_change": "De selectie van alle resultaten is gewist na filterwijzigingen.",
     "select_all": "Alles selecteren",
     "deselect_all": "Alles deselecteren",
     "clear_selection": "Selectie wissen",
@@ -279,7 +274,6 @@
     "ip_copied": "IP gekopieerd"
   },
   "users": {
-    "added_links": "Toegevoegde links",
     "edit": "Bewerken",
     "delete": "Verwijderen",
     "delete_users": "Gebruikers verwijderen",
